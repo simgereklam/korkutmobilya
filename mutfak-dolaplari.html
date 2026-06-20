@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="tr">
+ 
 <head>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -122,12 +124,17 @@ const galeri = document.getElementById("galeri");
 
 for(let i = 1; i <= 99; i++){
   galeri.innerHTML += `
-    <a href="mutfak-${i}.jpg" target="_blank">
-      <img src="mutfak-${i}.jpg" alt="Korkut Mobilya Yenibosna Mutfak Dolabı Modeli ${i}">
+    <a href="mutfak-${i}.jpg"
+       data-lightbox="mutfak"
+       data-title="Korkut Mobilya Mutfak Modeli ${i}">
+      <img src="mutfak-${i}.jpg"
+           alt="Korkut Mobilya Mutfak Dolabı Modeli ${i}">
     </a>
   `;
 }
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
 
 </body>
 </html>
