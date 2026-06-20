@@ -81,7 +81,11 @@ font-weight:bold;
 const galeri = document.getElementById("galeri");
 
 for(let i = 1; i <= 99; i++){
-  galeri.innerHTML += `<img src="mutfak-${i}.jpg" alt="Korkut Mobilya Yenibosna Mutfak Dolabı Modeli ${i}">`;
+  galeri.innerHTML += `
+    <a href="mutfak-${i}.jpg" target="_blank">
+      <img src="mutfak-${i}.jpg" alt="Korkut Mobilya Yenibosna Mutfak Dolabı Modeli ${i}">
+    </a>
+  `;
 }
 </script>
 
