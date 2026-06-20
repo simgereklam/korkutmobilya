@@ -5,19 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Korkut Mobilya | Yenibosna Mutfak Dolabı ve Özel Ölçü Mobilya</title>
-
 <meta name="description" content="Korkut Mobilya; Yenibosna, Bahçelievler, Bakırköy, Bağcılar, Avcılar, Sefaköy, Yeşilköy, Ataköy, Güngören ve Haznedar bölgelerinde mutfak dolabı, gardırop, banyo dolabı, portmanto ve özel ölçü mobilya imalatı yapmaktadır.">
-
-<meta name="keywords" content="Yenibosna mutfak dolabı, Yenibosna gardırop, Yenibosna özel ölçü mobilya, Bahçelievler mutfak dolabı, Bakırköy gardırop, Bağcılar mutfak dolabı, Avcılar mobilya, Sefaköy mutfak dolabı, Yeşilköy gardırop, Ataköy mobilya, Güngören gardırop, Haznedar mobilya">
-
 <meta name="robots" content="index,follow">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:Arial,sans-serif;
@@ -39,19 +31,16 @@ list-style:none;
 display:flex;
 justify-content:center;
 align-items:center;
-flex-wrap:wrap;
 gap:28px;
 }
 
-nav ul li{
-position:relative;
-}
+nav li{position:relative;}
 
 nav a{
 color:white;
 text-decoration:none;
 font-weight:bold;
-font-size:16px;
+font-size:15px;
 }
 
 .dropdown-content{
@@ -60,8 +49,8 @@ position:absolute;
 top:32px;
 left:0;
 background:white;
-min-width:230px;
-box-shadow:0 5px 20px rgba(0,0,0,.15);
+min-width:220px;
+box-shadow:0 5px 20px rgba(0,0,0,.18);
 z-index:999;
 }
 
@@ -70,18 +59,18 @@ display:block;
 padding:12px;
 color:#222;
 border-bottom:1px solid #eee;
-font-size:15px;
 }
 
 .dropdown:hover .dropdown-content{
 display:block;
 }
 
-/* ÜST GÖRSEL ALANI */
+/* ANA GÖRSEL */
 .hero{
 position:relative;
 width:100%;
-max-width:1500px;
+max-width:1300px;
+height:430px;
 margin:0 auto;
 overflow:hidden;
 background:#111;
@@ -89,18 +78,17 @@ background:#111;
 
 .hero img{
 width:100%;
-height:auto;
+height:100%;
+object-fit:cover;
+object-position:center;
 display:block;
 }
 
 .hero::after{
 content:"";
 position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.32);
+inset:0;
+background:rgba(0,0,0,.30);
 z-index:1;
 }
 
@@ -117,15 +105,15 @@ text-shadow:0 3px 12px rgba(0,0,0,.9);
 }
 
 .hero-text h1{
-font-size:58px;
+font-size:48px;
 line-height:1.1;
-margin-bottom:14px;
+margin-bottom:12px;
 letter-spacing:1px;
 }
 
 .hero-text p{
-font-size:22px;
-margin-bottom:12px;
+font-size:20px;
+margin-bottom:10px;
 font-weight:bold;
 }
 
@@ -133,130 +121,163 @@ font-weight:bold;
 display:inline-block;
 background:#c59b52;
 color:white;
-padding:15px 30px;
-border-radius:10px;
+padding:13px 26px;
+border-radius:9px;
 text-decoration:none;
 font-weight:bold;
-font-size:20px;
-margin-top:14px;
+font-size:18px;
+margin-top:12px;
 box-shadow:0 5px 18px rgba(0,0,0,.35);
 }
 
 section{
-max-width:1200px;
+max-width:1100px;
 margin:auto;
-padding:55px 20px;
+padding:50px 20px;
 }
 
 .section-title{
 text-align:center;
-margin-bottom:35px;
+margin-bottom:30px;
 }
 
 .section-title h2{
-font-size:34px;
-color:#222;
+font-size:32px;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:22px;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
 }
 
 .card{
 background:white;
-padding:26px;
-border-radius:14px;
+padding:24px;
+border-radius:13px;
 box-shadow:0 4px 18px rgba(0,0,0,.08);
-font-size:17px;
+font-size:16px;
 }
 
 .card h3{
-font-size:23px;
-margin-bottom:12px;
+font-size:21px;
+margin-bottom:10px;
 color:#2b2118;
 }
 
 .card p{
-font-size:17px;
+font-size:16px;
 }
 
 .bolgeler{
 background:white;
-padding:30px;
-border-radius:14px;
+padding:28px;
+border-radius:13px;
 box-shadow:0 4px 18px rgba(0,0,0,.08);
-font-size:17px;
+font-size:16px;
 }
 
 footer{
 background:#2b2118;
 color:white;
 text-align:center;
-padding:32px;
-margin-top:50px;
-font-size:16px;
+padding:30px;
+margin-top:40px;
+font-size:15px;
 }
 
 .whatsapp{
 position:fixed;
-right:22px;
-bottom:22px;
+right:20px;
+bottom:20px;
 background:#25D366;
 color:white;
-padding:16px 24px;
+padding:15px 22px;
 border-radius:50px;
 text-decoration:none;
 font-weight:bold;
-font-size:17px;
+font-size:16px;
 z-index:999;
 }
 
+/* MOBİL DÜZEN */
 @media(max-width:768px){
 
+nav{
+padding:10px;
+}
+
 nav ul{
-flex-direction:column;
+display:flex;
+flex-direction:row;
+justify-content:center;
+flex-wrap:wrap;
 gap:12px;
 }
 
+nav a{
+font-size:14px;
+}
+
 .dropdown-content{
-position:static;
+display:none;
+position:absolute;
+top:26px;
+left:50%;
+transform:translateX(-50%);
+min-width:230px;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content{
 display:block;
-background:#f5f5f5;
-box-shadow:none;
-margin-top:10px;
+}
+
+.dropdown-content a{
+font-size:14px;
+padding:10px;
 }
 
 .hero{
-height:460px;
+height:300px;
+max-width:100%;
 }
 
 .hero-text h1{
-font-size:38px;
+font-size:30px;
 }
 
 .hero-text p{
-font-size:18px;
+font-size:15px;
 }
 
 .btn{
-font-size:17px;
-padding:13px 22px;
+font-size:15px;
+padding:10px 18px;
+}
+
+section{
+padding:38px 16px;
 }
 
 .section-title h2{
-font-size:28px;
+font-size:26px;
 }
 
-.card h3{
-font-size:21px;
+.grid{
+grid-template-columns:1fr;
+gap:15px;
 }
 
-.card,
-.card p,
-.bolgeler{
-font-size:16px;
+.card{
+padding:20px;
+}
+
+.whatsapp{
+font-size:15px;
+padding:13px 18px;
+right:14px;
+bottom:14px;
 }
 
 }
@@ -267,7 +288,6 @@ font-size:16px;
 
 <nav>
 <ul>
-
 <li><a href="index.html">Ana Sayfa</a></li>
 
 <li class="dropdown">
@@ -289,12 +309,10 @@ font-size:16px;
 
 <li><a href="#hakkimizda">Hakkımızda</a></li>
 <li><a href="#iletisim">İletişim</a></li>
-
 </ul>
 </nav>
 
 <div class="hero">
-
 <img src="mutfak-29.jpg" alt="Korkut Mobilya Özel Ölçü Mutfak Dolabı">
 
 <div class="hero-text">
@@ -303,11 +321,9 @@ font-size:16px;
 <p>Mutfak Dolapları • Gardırop • Banyo Dolapları</p>
 <a class="btn" href="tel:+905323248604">0532 324 86 04</a>
 </div>
-
 </div>
 
 <section>
-
 <div class="section-title">
 <h2>Ürünlerimiz</h2>
 </div>
@@ -370,73 +386,54 @@ font-size:16px;
 </div>
 
 </div>
-
 </section>
 
 <section id="hakkimizda">
-
 <div class="section-title">
 <h2>Neden Korkut Mobilya?</h2>
 </div>
 
 <div class="grid">
-
 <div class="card">✓ Özel Ölçü Üretim</div>
 <div class="card">✓ Ücretsiz Keşif</div>
 <div class="card">✓ Yerinde Ölçü Alımı</div>
 <div class="card">✓ Kaliteli Malzeme</div>
 <div class="card">✓ Usta İşçilik</div>
 <div class="card">✓ Zamanında Teslim</div>
-
 </div>
-
 </section>
 
 <section>
-
 <div class="section-title">
 <h2>Hizmet Verdiğimiz Bölgeler</h2>
 </div>
 
 <div class="bolgeler">
-
 <p>Yenibosna mutfak dolabı • Yenibosna gardırop • Yenibosna özel ölçü mobilya • Yenibosna mobilyacı</p><br>
-
 <p>Bahçelievler mutfak dolabı • Bahçelievler gardırop • Bahçelievler özel ölçü mobilya • Bahçelievler mobilyacı</p><br>
-
 <p>Bakırköy mutfak dolabı • Bakırköy gardırop • Bakırköy özel ölçü mobilya • Bakırköy mobilyacı</p><br>
-
 <p>Bağcılar mutfak dolabı • Bağcılar gardırop • Bağcılar özel ölçü mobilya • Bağcılar mobilyacı</p><br>
-
 <p>Avcılar • Sefaköy • Yeşilköy • Ataköy • Güngören • Haznedar • İstanbul</p>
-
 </div>
-
 </section>
 
 <section id="iletisim">
-
 <div class="section-title">
 <h2>İletişim</h2>
 </div>
 
 <div class="card">
-
 <h3>Korkut Mobilya</h3>
 <p>Telefon: 0532 324 86 04</p>
 <p>İstanbul / Yenibosna</p>
-
 </div>
-
 </section>
 
 <footer>
 <p>Korkut Mobilya - Özel Ölçü Mobilya İmalatı</p>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/905323248604">
-WhatsApp
-</a>
+<a class="whatsapp" href="https://wa.me/905323248604">WhatsApp</a>
 
 </body>
 </html>
