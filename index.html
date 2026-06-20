@@ -13,7 +13,6 @@
 <meta name="robots" content="index,follow">
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -29,7 +28,7 @@ line-height:1.6;
 
 nav{
 background:#2b2118;
-padding:15px;
+padding:16px 20px;
 position:sticky;
 top:0;
 z-index:999;
@@ -41,26 +40,27 @@ display:flex;
 justify-content:center;
 align-items:center;
 flex-wrap:wrap;
-gap:25px;
-}
-
-nav ul li{
-position:relative;
+gap:30px;
 }
 
 nav a{
 color:white;
 text-decoration:none;
 font-weight:bold;
+font-size:17px;
+}
+
+nav ul li{
+position:relative;
 }
 
 .dropdown-content{
 display:none;
 position:absolute;
-top:30px;
+top:34px;
 left:0;
 background:white;
-min-width:220px;
+min-width:230px;
 box-shadow:0 5px 20px rgba(0,0,0,.15);
 z-index:999;
 }
@@ -70,6 +70,7 @@ display:block;
 padding:12px;
 color:#222;
 border-bottom:1px solid #eee;
+font-size:15px;
 }
 
 .dropdown:hover .dropdown-content{
@@ -80,109 +81,125 @@ display:block;
 background:#2b2118;
 color:white;
 text-align:center;
-padding:80px 20px;
+padding:70px 20px 80px;
 }
 
 .hero h1{
-font-size:42px;
-margin-bottom:15px;
+font-size:64px;
+line-height:1.1;
+margin-bottom:20px;
+letter-spacing:1px;
 }
 
 .hero p{
-font-size:18px;
-margin-bottom:10px;
+font-size:24px;
+margin-bottom:12px;
 }
 
 .btn{
 display:inline-block;
 background:#c59b52;
 color:white;
-padding:14px 24px;
-border-radius:8px;
+padding:18px 34px;
+border-radius:10px;
 text-decoration:none;
 font-weight:bold;
-margin-top:15px;
+font-size:22px;
+margin-top:20px;
 }
 
 .hero-image{
-margin-top:40px;
-text-align:center;
+margin:45px auto 0;
+width:100%;
+max-width:1200px;
 }
 
 .hero-image img{
 width:100%;
-max-width:1000px;
-height:550px;
+height:650px;
 object-fit:cover;
+object-position:center;
 border-radius:18px;
-box-shadow:0 8px 30px rgba(0,0,0,.35);
+box-shadow:0 10px 35px rgba(0,0,0,.45);
+display:block;
 }
 
 section{
 max-width:1200px;
 margin:auto;
-padding:50px 20px;
+padding:60px 20px;
 }
 
 .section-title{
 text-align:center;
-margin-bottom:30px;
+margin-bottom:35px;
+}
+
+.section-title h2{
+font-size:36px;
+color:#222;
 }
 
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+gap:22px;
 }
 
 .card{
 background:white;
-padding:25px;
-border-radius:12px;
-box-shadow:0 4px 15px rgba(0,0,0,.08);
+padding:28px;
+border-radius:14px;
+box-shadow:0 4px 18px rgba(0,0,0,.08);
+font-size:18px;
 }
 
 .card h3{
-margin-bottom:10px;
+font-size:24px;
+margin-bottom:12px;
 color:#2b2118;
+}
+
+.card p{
+font-size:18px;
 }
 
 .bolgeler{
 background:white;
-padding:25px;
-border-radius:12px;
-box-shadow:0 4px 15px rgba(0,0,0,.08);
+padding:30px;
+border-radius:14px;
+box-shadow:0 4px 18px rgba(0,0,0,.08);
+font-size:18px;
 }
 
 footer{
 background:#2b2118;
 color:white;
 text-align:center;
-padding:30px;
+padding:35px;
 margin-top:50px;
+font-size:17px;
 }
 
 .whatsapp{
 position:fixed;
-right:20px;
-bottom:20px;
+right:22px;
+bottom:22px;
 background:#25D366;
 color:white;
-padding:15px 20px;
+padding:17px 24px;
 border-radius:50px;
 text-decoration:none;
 font-weight:bold;
+font-size:18px;
+z-index:999;
 }
 
 @media(max-width:768px){
 
-.hero h1{
-font-size:30px;
-}
-
 nav ul{
 flex-direction:column;
-gap:10px;
+gap:12px;
 }
 
 .dropdown-content{
@@ -193,8 +210,41 @@ box-shadow:none;
 margin-top:10px;
 }
 
+.hero{
+padding:45px 15px 55px;
 }
 
+.hero h1{
+font-size:38px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.btn{
+font-size:18px;
+padding:14px 24px;
+}
+
+.hero-image img{
+height:360px;
+border-radius:12px;
+}
+
+.section-title h2{
+font-size:28px;
+}
+
+.card{
+font-size:16px;
+}
+
+.card h3{
+font-size:21px;
+}
+
+}
 </style>
 </head>
 
@@ -203,7 +253,7 @@ margin-top:10px;
 <nav>
 <ul>
 
-<li><a href="#">Ana Sayfa</a></li>
+<li><a href="index.html">Ana Sayfa</a></li>
 
 <li class="dropdown">
 <a href="#">Ürünlerimiz ▼</a>
@@ -220,12 +270,10 @@ margin-top:10px;
 <a href="kiler-dolabi.html">Kiler Dolabı</a>
 <a href="ayakkabilik.html">Ayakkabılık</a>
 </div>
+</li>
 
-
-
-
-<li><a href="#">Hakkımızda</a></li>
-<li><a href="#">İletişim</a></li>
+<li><a href="#hakkimizda">Hakkımızda</a></li>
+<li><a href="#iletisim">İletişim</a></li>
 
 </ul>
 </nav>
@@ -240,8 +288,8 @@ margin-top:10px;
 
 <a class="btn" href="tel:+905323248604">0532 324 86 04</a>
 
-  <div class="hero-image">
-    <img src="mutfak-1.jpg" alt="Korkut Mobilya">
+<div class="hero-image">
+<img src="mutfak-89.jpg" alt="Korkut Mobilya Özel Ölçü Mutfak Dolabı">
 </div>
 
 </section>
@@ -313,7 +361,7 @@ margin-top:10px;
 
 </section>
 
-<section>
+<section id="hakkimizda">
 
 <div class="section-title">
 <h2>Neden Korkut Mobilya?</h2>
@@ -354,7 +402,7 @@ margin-top:10px;
 
 </section>
 
-<section>
+<section id="iletisim">
 
 <div class="section-title">
 <h2>İletişim</h2>
