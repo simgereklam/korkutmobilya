@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Korkut Mobilya | Yenibosna Mutfak Dolabı ve Özel Ölçü Mobilya</title>
-<meta name="description" content="Korkut Mobilya; Yenibosna, Bahçelievler, Bakırköy, Bağcılar, Avcılar, Sefaköy, Yeşilköy, Ataköy, Güngören ve Haznedar bölgelerinde mutfak dolabı, gardırop, banyo dolabı, portmanto ve özel ölçü mobilya imalatı yapmaktadır.">
+<meta name="description" content="Korkut Mobilya; Yenibosna, Bahçelievler, Bakırköy ve çevresinde mutfak dolabı, gardırop, banyo dolabı ve özel ölçü mobilya imalatı yapmaktadır.">
 <meta name="robots" content="index,follow">
 
 <style>
@@ -20,16 +20,25 @@ line-height:1.6;
 
 nav{
 background:#2b2118;
-padding:14px 20px;
+padding:14px 35px;
 position:sticky;
 top:0;
 z-index:999;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+color:white;
+font-size:24px;
+font-weight:bold;
+text-decoration:none;
 }
 
 nav ul{
 list-style:none;
 display:flex;
-justify-content:center;
 align-items:center;
 gap:28px;
 }
@@ -40,7 +49,7 @@ nav a{
 color:white;
 text-decoration:none;
 font-weight:bold;
-font-size:15px;
+font-size:16px;
 }
 
 .dropdown-content{
@@ -65,13 +74,9 @@ border-bottom:1px solid #eee;
 display:block;
 }
 
-/* ANA GÖRSEL */
 .hero{
-position:relative;
 width:100%;
-max-width:1300px;
-height:1040px;
-margin:0 auto;
+height:430px;
 overflow:hidden;
 background:#111;
 }
@@ -84,56 +89,10 @@ object-position:center;
 display:block;
 }
 
-.hero::after{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.30);
-z-index:1;
-}
-
-.hero-text{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-text-align:center;
-color:white;
-z-index:2;
-width:90%;
-text-shadow:0 3px 12px rgba(0,0,0,.9);
-}
-
-.hero-text h1{
-font-size:48px;
-line-height:1.1;
-margin-bottom:12px;
-letter-spacing:1px;
-}
-
-.hero-text p{
-font-size:20px;
-margin-bottom:10px;
-font-weight:bold;
-}
-
-.btn{
-display:inline-block;
-background:#c59b52;
-color:white;
-padding:13px 26px;
-border-radius:9px;
-text-decoration:none;
-font-weight:bold;
-font-size:18px;
-margin-top:12px;
-box-shadow:0 5px 18px rgba(0,0,0,.35);
-}
-
 section{
 max-width:1100px;
 margin:auto;
-padding:50px 20px;
+padding:55px 20px;
 }
 
 .section-title{
@@ -142,7 +101,7 @@ margin-bottom:30px;
 }
 
 .section-title h2{
-font-size:32px;
+font-size:34px;
 }
 
 .grid{
@@ -153,20 +112,16 @@ gap:20px;
 
 .card{
 background:white;
-padding:24px;
+padding:26px;
 border-radius:13px;
 box-shadow:0 4px 18px rgba(0,0,0,.08);
-font-size:16px;
+font-size:17px;
 }
 
 .card h3{
-font-size:21px;
+font-size:22px;
 margin-bottom:10px;
 color:#2b2118;
-}
-
-.card p{
-font-size:16px;
 }
 
 .bolgeler{
@@ -200,77 +155,48 @@ font-size:16px;
 z-index:999;
 }
 
-/* MOBİL DÜZEN */
 @media(max-width:768px){
 
 nav{
-padding:10px;
-}
-
-nav ul{
-display:flex;
-flex-direction:row;
-justify-content:center;
-flex-wrap:wrap;
+padding:12px 15px;
+flex-direction:column;
 gap:12px;
 }
 
+.logo{
+font-size:22px;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+gap:16px;
+}
+
 nav a{
-font-size:14px;
+font-size:15px;
 }
 
 .dropdown-content{
-display:none;
-position:absolute;
-top:26px;
+top:28px;
 left:50%;
 transform:translateX(-50%);
-min-width:230px;
-}
-
-.dropdown:hover .dropdown-content,
-.dropdown:focus-within .dropdown-content{
-display:block;
-}
-
-.dropdown-content a{
-font-size:14px;
-padding:10px;
 }
 
 .hero{
-height:300px;
-max-width:100%;
-}
-
-.hero-text h1{
-font-size:30px;
-}
-
-.hero-text p{
-font-size:15px;
-}
-
-.btn{
-font-size:15px;
-padding:10px 18px;
+height:260px;
 }
 
 section{
-padding:38px 16px;
+padding:42px 16px;
 }
 
 .section-title h2{
-font-size:26px;
+font-size:28px;
 }
 
 .grid{
 grid-template-columns:1fr;
-gap:15px;
-}
-
-.card{
-padding:20px;
 }
 
 .whatsapp{
@@ -287,10 +213,26 @@ bottom:14px;
 <body>
 
 <nav>
+<a class="logo" href="index.html">KORKUT MOBİLYA</a>
+
 <ul>
 <li><a href="index.html">Ana Sayfa</a></li>
 
-
+<li class="dropdown">
+<a href="#">Ürünlerimiz ▼</a>
+<div class="dropdown-content">
+<a href="mutfak-dolaplari.html">Mutfak Dolapları</a>
+<a href="banyo-dolaplari.html">Banyo Dolapları</a>
+<a href="gardirop.html">Gardırop</a>
+<a href="cocuk-odasi.html">Çocuk Odası</a>
+<a href="kapi.html">Kapı</a>
+<a href="vitrin.html">Vitrin</a>
+<a href="komidin.html">Komidin</a>
+<a href="dubleks-merdiveni.html">Dubleks Merdiveni</a>
+<a href="portmanto.html">Portmanto</a>
+<a href="kiler-dolabi.html">Kiler Dolabı</a>
+<a href="ayakkabilik.html">Ayakkabılık</a>
+</div>
 </li>
 
 <li><a href="#hakkimizda">Hakkımızda</a></li>
@@ -300,79 +242,7 @@ bottom:14px;
 
 <div class="hero">
 <img src="mutfak-29.jpg" alt="Korkut Mobilya Özel Ölçü Mutfak Dolabı">
-
-<div class="hero-text">
-<h1>KORKUT MOBİLYA</h1>
-<p>Özel Ölçü Mobilya İmalatı</p>
-<p>Mutfak Dolapları • Gardırop • Banyo Dolapları</p>
-<a class="btn" href="tel:+905323248604">0532 324 86 04</a>
 </div>
-</div>
-
-<section>
-<div class="section-title">
-<h2>Ürünlerimiz</h2>
-</div>
-
-<div class="grid">
-
-<div class="card">
-<h3>Mutfak Dolapları</h3>
-<p>Özel ölçü mutfak dolabı tasarım ve imalatı.</p>
-</div>
-
-<div class="card">
-<h3>Banyo Dolapları</h3>
-<p>Modern ve kullanışlı banyo dolapları.</p>
-</div>
-
-<div class="card">
-<h3>Gardırop</h3>
-<p>Sürgülü ve kapaklı gardırop üretimi.</p>
-</div>
-
-<div class="card">
-<h3>Çocuk Odası</h3>
-<p>Özel ölçü çocuk odası mobilyaları.</p>
-</div>
-
-<div class="card">
-<h3>Kapı</h3>
-<p>Lake ve özel tasarım kapılar.</p>
-</div>
-
-<div class="card">
-<h3>Vitrin</h3>
-<p>Salon ve yaşam alanları için vitrinler.</p>
-</div>
-
-<div class="card">
-<h3>Komidin</h3>
-<p>Modern komidin modelleri.</p>
-</div>
-
-<div class="card">
-<h3>Dubleks Merdiveni</h3>
-<p>Ahşap dubleks merdiven üretimi.</p>
-</div>
-
-<div class="card">
-<h3>Portmanto</h3>
-<p>Özel ölçü portmanto tasarımları.</p>
-</div>
-
-<div class="card">
-<h3>Kiler Dolabı</h3>
-<p>Fonksiyonel depolama çözümleri.</p>
-</div>
-
-<div class="card">
-<h3>Ayakkabılık</h3>
-<p>Özel ölçü ayakkabılık üretimi.</p>
-</div>
-
-</div>
-</section>
 
 <section id="hakkimizda">
 <div class="section-title">
@@ -380,12 +250,12 @@ bottom:14px;
 </div>
 
 <div class="grid">
-<div class="card">✓ Özel Ölçü Üretim</div>
-<div class="card">✓ Ücretsiz Keşif</div>
-<div class="card">✓ Yerinde Ölçü Alımı</div>
-<div class="card">✓ Kaliteli Malzeme</div>
-<div class="card">✓ Usta İşçilik</div>
-<div class="card">✓ Zamanında Teslim</div>
+<div class="card"><h3>Özel Ölçü Üretim</h3><p>Alanınıza uygun ölçüde mobilya imalatı yapıyoruz.</p></div>
+<div class="card"><h3>Ücretsiz Keşif</h3><p>Yerinde ölçü alıyor, ihtiyaca göre çözüm sunuyoruz.</p></div>
+<div class="card"><h3>Kaliteli Malzeme</h3><p>Mutfak, gardırop ve banyo dolaplarında dayanıklı malzemeler kullanıyoruz.</p></div>
+<div class="card"><h3>Usta İşçilik</h3><p>Özenli üretim ve temiz montaj hizmeti veriyoruz.</p></div>
+<div class="card"><h3>Zamanında Teslim</h3><p>İşi planlanan sürede teslim etmeye önem veriyoruz.</p></div>
+<div class="card"><h3>Yenibosna ve Çevresi</h3><p>Bahçelievler, Bakırköy, Bağcılar ve çevresinde hizmet veriyoruz.</p></div>
 </div>
 </section>
 
@@ -398,8 +268,7 @@ bottom:14px;
 <p>Yenibosna mutfak dolabı • Yenibosna gardırop • Yenibosna özel ölçü mobilya • Yenibosna mobilyacı</p><br>
 <p>Bahçelievler mutfak dolabı • Bahçelievler gardırop • Bahçelievler özel ölçü mobilya • Bahçelievler mobilyacı</p><br>
 <p>Bakırköy mutfak dolabı • Bakırköy gardırop • Bakırköy özel ölçü mobilya • Bakırköy mobilyacı</p><br>
-<p>Bağcılar mutfak dolabı • Bağcılar gardırop • Bağcılar özel ölçü mobilya • Bağcılar mobilyacı</p><br>
-<p>Avcılar • Sefaköy • Yeşilköy • Ataköy • Güngören • Haznedar • İstanbul</p>
+<p>Bağcılar • Avcılar • Sefaköy • Yeşilköy • Ataköy • Güngören • Haznedar • İstanbul</p>
 </div>
 </section>
 
