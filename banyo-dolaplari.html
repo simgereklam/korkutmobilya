@@ -5,67 +5,235 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Yenibosna Banyo Dolabı Modelleri | Korkut Mobilya</title>
-<meta name="description" content="Yenibosna, Bahçelievler, Bakırköy ve çevresinde özel ölçü banyo dolabı tasarım ve imalatı.">
-<meta name="robots" content="index,follow">
+<meta name="description" content="Yenibosna, Bahçelievler, Bakırköy ve çevresinde özel ölçü banyo dolabı imalatı.">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#f4f4f4;color:#222;line-height:1.6}
 
-nav{background:#2b2118;padding:14px 35px;position:sticky;top:0;z-index:999;display:flex;justify-content:space-between;align-items:center}
-.logo{color:white;font-size:34px;font-weight:bold;text-decoration:none}
-nav ul{list-style:none;display:flex;align-items:center;gap:28px}
+body{
+font-family:Arial,sans-serif;
+background:#f3f4f6;
+color:#222;
+line-height:1.6;
+}
+
+nav{
+background:#111827;
+border-bottom:3px solid #f97316;
+padding:14px 35px;
+position:sticky;
+top:0;
+z-index:999;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+color:white;
+font-size:32px;
+font-weight:bold;
+text-decoration:none;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:25px;
+align-items:center;
+}
+
 nav li{position:relative}
-nav a{color:white;text-decoration:none;font-weight:bold;font-size:16px}
 
-.dropdown-content{display:none;position:absolute;top:32px;left:0;background:white;min-width:220px;box-shadow:0 5px 20px rgba(0,0,0,.18);z-index:999}
-.dropdown-content a{display:block;padding:12px;color:#222;border-bottom:1px solid #eee}
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{color:#f97316}
+
+.dropdown-content{
+display:none;
+position:absolute;
+top:30px;
+left:0;
+background:white;
+min-width:220px;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+border-radius:8px;
+overflow:hidden;
+z-index:999;
+}
+
+.dropdown-content a{
+display:block;
+color:#222;
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
+.dropdown-content a:hover{
+background:#fff7ed;
+color:#f97316;
+}
+
 .dropdown:hover .dropdown-content{display:block}
 
-header{background:#2b2118;color:white;padding:45px 20px;text-align:center}
+header{
+background:linear-gradient(135deg,#1f2937,#111827);
+color:white;
+text-align:center;
+padding:60px 20px;
+border-bottom:4px solid #f97316;
+}
+
 header h1{font-size:38px}
-header p{font-size:18px}
+header p{font-size:18px;color:#fed7aa;margin-top:8px}
 
-section{max-width:1200px;margin:auto;padding:35px 20px}
-.card{background:white;padding:25px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,.08);margin-bottom:20px}
-.card h2{margin-bottom:10px;color:#2b2118}
+section{
+max-width:1200px;
+margin:auto;
+padding:35px 20px;
+}
 
-.gallery{display:flex;overflow-x:auto;gap:15px;padding:10px 0 18px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-.gallery a{flex:0 0 85%;scroll-snap-align:center;display:block}
-.gallery img{width:100%;height:330px;object-fit:cover;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,.15);display:block}
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
 
-.whatsapp{position:fixed;right:20px;bottom:20px;background:#25D366;color:white;padding:15px 22px;border-radius:50px;text-decoration:none;font-weight:bold;font-size:16px;z-index:999}
+.gallery img{
+width:100%;
+height:320px;
+object-fit:cover;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,.15);
+cursor:pointer;
+transition:.2s;
+}
 
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:9999;align-items:center;justify-content:center;overflow:hidden}
+.gallery img:hover{
+transform:scale(1.02);
+}
+
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25D366;
+color:white;
+padding:15px 22px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+z-index:999;
+}
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.95);
+z-index:9999;
+align-items:center;
+justify-content:center;
+}
+
 .modal.active{display:flex}
-.modal img{max-width:100%;max-height:86vh;object-fit:contain}
 
-.close{position:absolute;top:15px;right:20px;color:white;font-size:42px;cursor:pointer;z-index:10000}
-.arrow{position:absolute;top:50%;transform:translateY(-50%);color:white;font-size:55px;cursor:pointer;padding:20px;z-index:10000;user-select:none}
-.prev{left:5px}
-.next{right:5px}
-.counter{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:white;font-size:16px;background:rgba(0,0,0,.4);padding:6px 14px;border-radius:20px}
+.modal img{
+max-width:95%;
+max-height:85vh;
+object-fit:contain;
+}
 
-footer{background:#2b2118;color:white;text-align:center;padding:30px;margin-top:40px;font-size:15px}
+.close{
+position:absolute;
+top:15px;
+right:25px;
+color:white;
+font-size:42px;
+cursor:pointer;
+}
 
-@media(min-width:992px){
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;gap:20px}
-.gallery a{flex:none}
-.gallery img{height:320px}
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+color:white;
+font-size:55px;
+cursor:pointer;
+padding:20px;
+user-select:none;
+}
+
+.prev{left:10px}
+.next{right:10px}
+
+.counter{
+position:absolute;
+bottom:18px;
+left:50%;
+transform:translateX(-50%);
+color:white;
+background:#f97316;
+padding:6px 14px;
+border-radius:20px;
+font-size:15px;
+}
+
+footer{
+background:#111827;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:40px;
+border-top:3px solid #f97316;
 }
 
 @media(max-width:768px){
-nav{padding:12px 15px;flex-direction:column;gap:12px}
+nav{
+padding:12px 15px;
+flex-direction:column;
+gap:12px;
+}
+
 .logo{font-size:22px}
-nav ul{flex-wrap:wrap;justify-content:center;gap:16px}
-nav a{font-size:15px}
-.dropdown-content{top:28px;left:50%;transform:translateX(-50%)}
-header{padding:35px 15px}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.dropdown-content{
+left:50%;
+transform:translateX(-50%);
+}
+
 header h1{font-size:30px}
-section{padding:25px 15px}
-.gallery img{height:300px}
-.arrow{font-size:42px;padding:12px}
-.whatsapp{font-size:15px;padding:13px 18px;right:14px;bottom:14px}
+
+.gallery{
+display:flex;
+overflow-x:auto;
+gap:15px;
+scroll-snap-type:x mandatory;
+}
+
+.gallery img{
+min-width:85%;
+height:300px;
+scroll-snap-align:center;
+}
+
+.arrow{font-size:42px}
+
+.whatsapp{
+right:14px;
+bottom:14px;
+padding:13px 18px;
+}
 }
 </style>
 </head>
@@ -107,15 +275,7 @@ section{padding:25px 15px}
 </header>
 
 <section>
-
-
-
-<div class="card">
-<h2>Banyo Dolabı Modellerimiz</h2>
-<p>Modelleri sağa sola kaydırabilir, resme basınca büyük görüntüleyebilirsiniz.</p>
 <div class="gallery" id="galeri"></div>
-</div>
-
 </section>
 
 <footer>
@@ -127,104 +287,101 @@ section{padding:25px 15px}
 <div class="modal" id="modal">
 <span class="close" onclick="closeModal()">×</span>
 <span class="arrow prev" onclick="prevImage()">‹</span>
-<img id="modalImg" src="">
+<img id="modalImg">
 <span class="arrow next" onclick="nextImage()">›</span>
 <div class="counter" id="counter"></div>
 </div>
 
 <script>
-const galeri = document.getElementById("galeri");
-
 const images = [
-  "banyo-dolaplari.1.png",
-  "banyo-dolaplari.2.png",
-  "banyo-dolaplari.3.png",
-  "banyo-dolaplari.4.png",
-  "banyo-dolaplari.5.png",
-  "banyo-dolaplari.6.png",
-  "banyo-dolaplari.7.png",
-  "banyo-dolaplari.8.png",
-  "banyo-dolaplari.9.png",
-  "banyo-dolaplari.10.png",
-  "banyo-dolaplari.11.png",
-  "banyo-dolaplari.12.png",
-  "banyo-dolaplari.13.png",
-  "banyo-dolaplari.14.png",
-  "banyo-dolaplari.15.png",
-  "banyo-dolaplari.16.png",
-  "banyo-dolaplari.17.png",
-  "banyo-dolaplari.19.png",
-  "banyo-dolaplari.20.png",
-  "banyo-dolaplari.21.png"
+"banyo-dolaplari.1.png",
+"banyo-dolaplari.2.png",
+"banyo-dolaplari.3.png",
+"banyo-dolaplari.4.png",
+"banyo-dolaplari.5.png",
+"banyo-dolaplari.6.png",
+"banyo-dolaplari.7.png",
+"banyo-dolaplari.8.png",
+"banyo-dolaplari.9.png",
+"banyo-dolaplari.10.png",
+"banyo-dolaplari.11.png",
+"banyo-dolaplari.12.png",
+"banyo-dolaplari.13.png",
+"banyo-dolaplari.14.png",
+"banyo-dolaplari.15.png",
+"banyo-dolaplari.16.png",
+"banyo-dolaplari.17.png",
+"banyo-dolaplari.19.png",
+"banyo-dolaplari.20.png",
+"banyo-dolaplari.21.png"
 ];
 
-let currentIndex = 0;
-
+const galeri = document.getElementById("galeri");
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
 const counter = document.getElementById("counter");
 
-images.forEach(function(src,index){
-  galeri.innerHTML += `
-    <a href="javascript:void(0)" onclick="openModal(${index})">
-      <img src="${src}" alt="Korkut Mobilya Banyo Dolabı Modeli ${index + 1}">
-    </a>
-  `;
+let currentIndex = 0;
+
+images.forEach((src,index)=>{
+const img = document.createElement("img");
+img.src = src;
+img.alt = "Korkut Mobilya Banyo Dolabı Modeli";
+img.onclick = ()=>openModal(index);
+galeri.appendChild(img);
 });
 
 function openModal(index){
-  currentIndex = index;
-  updateModal();
-  modal.classList.add("active");
-  document.body.style.overflow = "hidden";
+currentIndex = index;
+updateModal();
+modal.classList.add("active");
+document.body.style.overflow = "hidden";
 }
 
 function closeModal(){
-  modal.classList.remove("active");
-  document.body.style.overflow = "auto";
+modal.classList.remove("active");
+document.body.style.overflow = "auto";
 }
 
 function updateModal(){
-  modalImg.src = images[currentIndex];
-  counter.innerText = (currentIndex + 1) + " / " + images.length;
+modalImg.src = images[currentIndex];
+counter.innerText = (currentIndex + 1) + " / " + images.length;
 }
 
 function nextImage(){
-  currentIndex++;
-  if(currentIndex >= images.length){currentIndex = 0;}
-  updateModal();
+currentIndex++;
+if(currentIndex >= images.length){currentIndex = 0}
+updateModal();
 }
 
 function prevImage(){
-  currentIndex--;
-  if(currentIndex < 0){currentIndex = images.length - 1;}
-  updateModal();
+currentIndex--;
+if(currentIndex < 0){currentIndex = images.length - 1}
+updateModal();
 }
 
-document.addEventListener("keydown",function(e){
-  if(!modal.classList.contains("active")) return;
-  if(e.key === "ArrowRight") nextImage();
-  if(e.key === "ArrowLeft") prevImage();
-  if(e.key === "Escape") closeModal();
+document.addEventListener("keydown",e=>{
+if(!modal.classList.contains("active")) return;
+if(e.key === "ArrowRight") nextImage();
+if(e.key === "ArrowLeft") prevImage();
+if(e.key === "Escape") closeModal();
 });
 
 let startX = 0;
 
-modal.addEventListener("touchstart",function(e){
-  startX = e.touches[0].clientX;
+modal.addEventListener("touchstart",e=>{
+startX = e.touches[0].clientX;
 });
 
-modal.addEventListener("touchend",function(e){
-  let endX = e.changedTouches[0].clientX;
-  let diff = startX - endX;
-
-  if(Math.abs(diff) > 50){
-    if(diff > 0){nextImage();}else{prevImage();}
-  }
+modal.addEventListener("touchend",e=>{
+let diff = startX - e.changedTouches[0].clientX;
+if(Math.abs(diff) > 50){
+diff > 0 ? nextImage() : prevImage();
+}
 });
 
-modal.addEventListener("click",function(e){
-  if(e.target === modal){closeModal();}
+modal.addEventListener("click",e=>{
+if(e.target === modal) closeModal();
 });
 </script>
 
