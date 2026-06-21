@@ -8,11 +8,7 @@
 <meta name="description" content="Yenibosna, Bahçelievler, Bakırköy ve çevresinde özel ölçü gardırop, sürgülü gardırop ve kapaklı gardırop imalatı.">
 
 <style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
 font-family:Arial,sans-serif;
@@ -28,13 +24,8 @@ padding:45px 20px;
 text-align:center;
 }
 
-header h1{
-font-size:38px;
-}
-
-header p{
-font-size:18px;
-}
+header h1{font-size:38px}
+header p{font-size:18px}
 
 section{
 max-width:1200px;
@@ -103,9 +94,7 @@ justify-content:center;
 overflow:hidden;
 }
 
-.modal.active{
-display:flex;
-}
+.modal.active{display:flex}
 
 .modal img{
 max-width:100%;
@@ -135,13 +124,8 @@ z-index:10000;
 user-select:none;
 }
 
-.prev{
-left:5px;
-}
-
-.next{
-right:5px;
-}
+.prev{left:5px}
+.next{right:5px}
 
 .counter{
 position:absolute;
@@ -163,9 +147,7 @@ overflow:visible;
 gap:20px;
 }
 
-.gallery a{
-flex:none;
-}
+.gallery a{flex:none}
 
 .gallery img{
 height:320px;
@@ -173,26 +155,11 @@ height:320px;
 }
 
 @media(max-width:768px){
-header{
-padding:35px 15px;
-}
-
-header h1{
-font-size:30px;
-}
-
-section{
-padding:25px 15px;
-}
-
-.gallery img{
-height:300px;
-}
-
-.arrow{
-font-size:42px;
-padding:12px;
-}
+header{padding:35px 15px}
+header h1{font-size:30px}
+section{padding:25px 15px}
+.gallery img{height:300px}
+.arrow{font-size:42px;padding:12px}
 }
 </style>
 </head>
@@ -233,39 +200,58 @@ padding:12px;
 <script>
 const galeri = document.getElementById("galeri");
 
-/*
-Yeni görsel eklemek için sadece toplamResim sayısını artır.
-Örnek dosya isimleri:
-gardrop.1.png
-gardrop.2.png
-gardrop.3.png
-...
-gardrop.20.png
-*/
+const images = [
+  "gardrop.1.png",
+  "gardrop.2.png",
+  "gardrop.3.png",
+  "gardrop.4.png",
+  "gardrop.5.png",
+  "gardrop.8.png",
+  "gardrop.9.png",
+  "gardrop.10.png",
+  "gardrop.11.png",
+  "gardrop.12.png",
+  "gardrop.13.png",
+  "gardrop.14.png",
+  "gardrop.15.png"
+];
 
-const toplamResim = 15;
-
-const images = [];
-
-for(let i = 1; i <= toplamResim; i++){
-  images.push("gardrop." + i + ".png");
-}
-
-images.forEach(function(src, index){
-  galeri.innerHTML += `
-    <a href="javascript:void(0)" onclick="openModal(${index})">
-      <img src="${src}" alt="Korkut Mobilya Gardırop Modeli ${index + 1}" onerror="this.parentElement.style.display='none'">
-    </a>
-  `;
-});
-
+let loadedImages = [];
 let currentIndex = 0;
 
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
 const counter = document.getElementById("counter");
 
+images.forEach(function(src){
+  const link = document.createElement("a");
+  link.href = "javascript:void(0)";
+
+  const img = document.createElement("img");
+  img.src = src;
+  img.alt = "Korkut Mobilya Gardırop Modeli";
+
+  img.onload = function(){
+    loadedImages.push(src);
+    const realIndex = loadedImages.length - 1;
+
+    link.onclick = function(){
+      openModal(realIndex);
+    };
+
+    galeri.appendChild(link);
+  };
+
+  img.onerror = function(){
+    console.log("Resim bulunamadı: " + src);
+  };
+
+  link.appendChild(img);
+});
+
 function openModal(index){
+  if(loadedImages.length === 0) return;
+
   currentIndex = index;
   updateModal();
   modal.classList.add("active");
@@ -278,14 +264,16 @@ function closeModal(){
 }
 
 function updateModal(){
-  modalImg.src = images[currentIndex];
-  counter.innerText = (currentIndex + 1) + " / " + images.length;
+  modalImg.src = loadedImages[currentIndex];
+  counter.innerText = (currentIndex + 1) + " / " + loadedImages.length;
 }
 
 function nextImage(){
-  currentIndex = currentIndex + 1;
+  if(loadedImages.length === 0) return;
 
-  if(currentIndex >= images.length){
+  currentIndex++;
+
+  if(currentIndex >= loadedImages.length){
     currentIndex = 0;
   }
 
@@ -293,10 +281,12 @@ function nextImage(){
 }
 
 function prevImage(){
-  currentIndex = currentIndex - 1;
+  if(loadedImages.length === 0) return;
+
+  currentIndex--;
 
   if(currentIndex < 0){
-    currentIndex = images.length - 1;
+    currentIndex = loadedImages.length - 1;
   }
 
   updateModal();
