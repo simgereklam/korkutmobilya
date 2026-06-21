@@ -4,70 +4,78 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Korkut Mobilya | Yenibosna Mutfak Dolabı ve Özel Ölçü Mobilya</title>
-<meta name="description" content="Korkut Mobilya; Yenibosna, Bahçelievler, Bakırköy ve çevresinde mutfak dolabı, gardırop, banyo dolabı ve özel ölçü mobilya imalatı yapmaktadır.">
-<meta name="robots" content="index,follow">
+<title>Korkut Mobilya | Yenibosna Özel Ölçü Mobilya</title>
+<meta name="description" content="Yenibosna, Bahçelievler, Bakırköy ve çevresinde özel ölçü mutfak dolabı, banyo dolabı, gardırop, komidin, şifonyer, vitrin, portmanto ve mobilya imalatı.">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
 font-family:Arial,sans-serif;
-background:#f4f4f4;
+background:#f5f5f5;
 color:#222;
 line-height:1.6;
 }
 
-nav{
+header{
 background:#2b2118;
-padding:14px 35px;
-position:sticky;
-top:0;
-z-index:999;
-display:flex;
-justify-content:space-between;
-align-items:center;
+color:white;
+text-align:center;
+position:relative;
+z-index:1000;
 }
 
 .logo{
-color:white;
-font-size:24px;
+font-size:34px;
 font-weight:bold;
-text-decoration:none;
+padding:28px 15px 15px;
 }
 
-nav ul{
-list-style:none;
+nav{
 display:flex;
+justify-content:center;
 align-items:center;
 gap:28px;
+padding:12px 10px 22px;
+flex-wrap:wrap;
 }
 
-nav li{position:relative;}
-
-nav a{
+nav a,.dropbtn{
 color:white;
 text-decoration:none;
+font-size:20px;
 font-weight:bold;
-font-size:16px;
+background:none;
+border:none;
+cursor:pointer;
+}
+
+.dropdown{
+position:relative;
 }
 
 .dropdown-content{
 display:none;
 position:absolute;
-top:32px;
+top:35px;
 left:0;
 background:white;
-min-width:220px;
-box-shadow:0 5px 20px rgba(0,0,0,.18);
-z-index:999;
+min-width:260px;
+box-shadow:0 8px 20px rgba(0,0,0,.2);
+z-index:9999;
+text-align:left;
 }
 
 .dropdown-content a{
 display:block;
-padding:12px;
 color:#222;
+padding:16px 20px;
+font-size:18px;
 border-bottom:1px solid #eee;
+}
+
+.dropdown-content a:hover{
+background:#f2f2f2;
 }
 
 .dropdown:hover .dropdown-content{
@@ -75,220 +83,534 @@ display:block;
 }
 
 .hero{
-width:100%;
-height:430px;
-overflow:hidden;
-background:#111;
+height:360px;
+background:url("mutfak-1.jpg") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+position:relative;
 }
 
-.hero img{
-width:100%;
-height:100%;
-object-fit:cover;
-object-position:center;
-display:block;
+.hero:before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.45);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+padding:20px;
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:22px;
 }
 
 section{
-max-width:1100px;
+max-width:1200px;
 margin:auto;
-padding:55px 20px;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:30px;
-}
-
-.section-title h2{
-font-size:34px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
+padding:40px 20px;
 }
 
 .card{
 background:white;
-padding:26px;
-border-radius:13px;
-box-shadow:0 4px 18px rgba(0,0,0,.08);
-font-size:17px;
+padding:25px;
+border-radius:16px;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+margin-bottom:25px;
 }
 
-.card h3{
-font-size:22px;
-margin-bottom:10px;
+.card h2{
 color:#2b2118;
+margin-bottom:12px;
+font-size:30px;
 }
 
-.bolgeler{
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:20px;
+}
+
+.product{
 background:white;
-padding:28px;
-border-radius:13px;
-box-shadow:0 4px 18px rgba(0,0,0,.08);
+border-radius:16px;
+overflow:hidden;
+text-decoration:none;
+color:#222;
+box-shadow:0 4px 15px rgba(0,0,0,.12);
+transition:.2s;
+}
+
+.product:hover{
+transform:translateY(-4px);
+}
+
+.product img{
+width:100%;
+height:210px;
+object-fit:cover;
+display:block;
+background:#ddd;
+}
+
+.product h3{
+padding:16px;
+text-align:center;
+font-size:22px;
+}
+
+.gallery{
+display:flex;
+overflow-x:auto;
+gap:15px;
+padding:12px 0 20px;
+scroll-snap-type:x mandatory;
+-webkit-overflow-scrolling:touch;
+}
+
+.gallery a{
+flex:0 0 85%;
+scroll-snap-align:center;
+display:block;
+}
+
+.gallery img{
+width:100%;
+height:320px;
+object-fit:cover;
+border-radius:14px;
+box-shadow:0 4px 15px rgba(0,0,0,.15);
+display:block;
+}
+
+.whatsapp{
+position:fixed;
+right:18px;
+bottom:18px;
+background:#25D366;
+color:white;
+padding:15px 20px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+z-index:9999;
+box-shadow:0 4px 12px rgba(0,0,0,.25);
+}
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.95);
+z-index:99999;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+}
+
+.modal.active{
+display:flex;
+}
+
+.modal img{
+max-width:100%;
+max-height:86vh;
+object-fit:contain;
+}
+
+.close{
+position:absolute;
+top:15px;
+right:22px;
+color:white;
+font-size:44px;
+cursor:pointer;
+z-index:100000;
+}
+
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+color:white;
+font-size:58px;
+cursor:pointer;
+padding:20px;
+z-index:100000;
+user-select:none;
+}
+
+.prev{left:5px}
+.next{right:5px}
+
+.counter{
+position:absolute;
+bottom:18px;
+left:50%;
+transform:translateX(-50%);
+color:white;
 font-size:16px;
+background:rgba(0,0,0,.45);
+padding:6px 14px;
+border-radius:20px;
 }
 
 footer{
 background:#2b2118;
 color:white;
 text-align:center;
-padding:30px;
-margin-top:40px;
-font-size:15px;
+padding:30px 15px;
+margin-top:30px;
 }
 
-.whatsapp{
-position:fixed;
-right:20px;
-bottom:20px;
-background:#25D366;
-color:white;
-padding:15px 22px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-font-size:16px;
-z-index:999;
+@media(min-width:992px){
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+overflow:visible;
+gap:20px;
+}
+
+.gallery a{
+flex:none;
+}
+
+.gallery img{
+height:300px;
+}
 }
 
 @media(max-width:768px){
+.logo{
+font-size:30px;
+}
 
 nav{
-padding:12px 15px;
-flex-direction:column;
-gap:12px;
+gap:18px;
 }
 
-.logo{
-font-size:22px;
-}
-
-nav ul{
-flex-wrap:wrap;
-justify-content:center;
-gap:16px;
-}
-
-nav a{
-font-size:15px;
+nav a,.dropbtn{
+font-size:18px;
 }
 
 .dropdown-content{
-top:28px;
-left:50%;
-transform:translateX(-50%);
+left:-80px;
+min-width:300px;
 }
 
 .hero{
-height:260px;
+height:300px;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.hero p{
+font-size:19px;
 }
 
 section{
-padding:42px 16px;
+padding:30px 15px;
 }
 
-.section-title h2{
-font-size:28px;
+.card h2{
+font-size:26px;
 }
 
-.grid{
-grid-template-columns:1fr;
+.gallery img{
+height:290px;
 }
 
-.whatsapp{
-font-size:15px;
-padding:13px 18px;
-right:14px;
-bottom:14px;
+.arrow{
+font-size:42px;
+padding:12px;
 }
-
 }
 </style>
 </head>
 
 <body>
 
+<header>
+<div class="logo">KORKUT MOBİLYA</div>
+
 <nav>
-<a class="logo" href="index.html">KORKUT MOBİLYA</a>
+<a href="index.html">Ana Sayfa</a>
 
-<ul>
-<li><a href="index.html">Ana Sayfa</a></li>
-
-<li class="dropdown">
-<a href="#">Ürünlerimiz ▼</a>
+<div class="dropdown">
+<button class="dropbtn">Ürünlerimiz ▼</button>
 <div class="dropdown-content">
-<a href="mutfak-dolaplari.html">Mutfak Dolapları</a>
-<a href="banyo-dolaplari.html">Banyo Dolapları</a>
-<a href="gardirop.html">Gardırop</a>
+<a href="mutfak.html">Mutfak Dolapları</a>
+<a href="banyo-dolabi.html">Banyo Dolapları</a>
+<a href="gardrop.html">Gardırop</a>
 <a href="cocuk-odasi.html">Çocuk Odası</a>
 <a href="kapi.html">Kapı</a>
 <a href="vitrin.html">Vitrin</a>
 <a href="komidin.html">Komidin</a>
-<a href="dubleks-merdiveni.html">Dubleks Merdiveni</a>
+<a href="sifonyer.html">Şifonyer</a>
+<a href="merdiven.html">Dubleks Merdiveni</a>
 <a href="portmanto.html">Portmanto</a>
 <a href="kiler-dolabi.html">Kiler Dolabı</a>
-<a href="ayakkabıdolabı.html">Ayakkabılık</a>
+<a href="ayakkabilik.html">Ayakkabılık</a>
 </div>
-</li>
+</div>
 
-<li><a href="#hakkimizda">Hakkımızda</a></li>
-<li><a href="#iletisim">İletişim</a></li>
-</ul>
+<a href="#hakkimizda">Hakkımızda</a>
+<a href="#iletisim">İletişim</a>
 </nav>
+</header>
 
 <div class="hero">
-<img src="mutfak-29.jpg" alt="Korkut Mobilya Özel Ölçü Mutfak Dolabı">
+<div class="hero-content">
+<h1>Özel Ölçü Mobilya İmalatı</h1>
+<p>Yenibosna, Bahçelievler, Bakırköy ve çevresi</p>
+</div>
 </div>
 
 <section id="hakkimizda">
-<div class="section-title">
-<h2>Neden Korkut Mobilya?</h2>
-</div>
-
-<div class="grid">
-<div class="card"><h3>Özel Ölçü Üretim</h3><p>Alanınıza uygun ölçüde mobilya imalatı yapıyoruz.</p></div>
-<div class="card"><h3>Ücretsiz Keşif</h3><p>Yerinde ölçü alıyor, ihtiyaca göre çözüm sunuyoruz.</p></div>
-<div class="card"><h3>Kaliteli Malzeme</h3><p>Mutfak, gardırop ve banyo dolaplarında dayanıklı malzemeler kullanıyoruz.</p></div>
-<div class="card"><h3>Usta İşçilik</h3><p>Özenli üretim ve temiz montaj hizmeti veriyoruz.</p></div>
-<div class="card"><h3>Zamanında Teslim</h3><p>İşi planlanan sürede teslim etmeye önem veriyoruz.</p></div>
-<div class="card"><h3>Yenibosna ve Çevresi</h3><p>Bahçelievler, Bakırköy, Bağcılar ve çevresinde hizmet veriyoruz.</p></div>
-</div>
-</section>
-
-<section>
-<div class="section-title">
-<h2>Hizmet Verdiğimiz Bölgeler</h2>
-</div>
-
-<div class="bolgeler">
-<p>Yenibosna mutfak dolabı • Yenibosna gardırop • Yenibosna özel ölçü mobilya • Yenibosna mobilyacı</p><br>
-<p>Bahçelievler mutfak dolabı • Bahçelievler gardırop • Bahçelievler özel ölçü mobilya • Bahçelievler mobilyacı</p><br>
-<p>Bakırköy mutfak dolabı • Bakırköy gardırop • Bakırköy özel ölçü mobilya • Bakırköy mobilyacı</p><br>
-<p>Bağcılar • Avcılar • Sefaköy • Yeşilköy • Ataköy • Güngören • Haznedar • İstanbul</p>
-</div>
-</section>
-
-<section id="iletisim">
-<div class="section-title">
-<h2>İletişim</h2>
+<div class="card">
+<h2>Korkut Mobilya</h2>
+<p>Özel ölçü mutfak dolabı, banyo dolabı, gardırop, komidin, şifonyer, vitrin, portmanto, kiler dolabı ve ayakkabılık imalatı yapıyoruz.</p>
 </div>
 
 <div class="card">
-<h3>Korkut Mobilya</h3>
-<p>Telefon: 0532 324 86 04</p>
-<p>İstanbul / Yenibosna</p>
+<h2>Ürünlerimiz</h2>
+
+<div class="products">
+
+<a href="mutfak.html" class="product">
+<img src="mutfak-1.jpg" alt="Mutfak Dolapları">
+<h3>Mutfak Dolapları</h3>
+</a>
+
+<a href="banyo-dolabi.html" class="product">
+<img src="banyo.1.png" alt="Banyo Dolapları">
+<h3>Banyo Dolapları</h3>
+</a>
+
+<a href="gardrop.html" class="product">
+<img src="gardrop.1.png" alt="Gardırop">
+<h3>Gardırop</h3>
+</a>
+
+<a href="vitrin.html" class="product">
+<img src="vitrin.1.png" alt="Vitrin">
+<h3>Vitrin</h3>
+</a>
+
+<a href="komidin.html" class="product">
+<img src="komidin.1.png" alt="Komidin">
+<h3>Komidin</h3>
+</a>
+
+<a href="sifonyer.html" class="product">
+<img src="sifonyer.1.png" alt="Şifonyer">
+<h3>Şifonyer</h3>
+</a>
+
+<a href="merdiven.html" class="product">
+<img src="merdiven.1.png" alt="Dubleks Merdiveni">
+<h3>Dubleks Merdiveni</h3>
+</a>
+
+<a href="portmanto.html" class="product">
+<img src="portmanto.1.png" alt="Portmanto">
+<h3>Portmanto</h3>
+</a>
+
+<a href="kiler-dolabi.html" class="product">
+<img src="kiler.1.png" alt="Kiler Dolabı">
+<h3>Kiler Dolabı</h3>
+</a>
+
+<a href="ayakkabilik.html" class="product">
+<img src="ayakkabilik.1.png" alt="Ayakkabılık">
+<h3>Ayakkabılık</h3>
+</a>
+
+</div>
+</div>
+
+<div class="card">
+<h2>Öne Çıkan Modeller</h2>
+<p>Görselleri sağa sola kaydırabilir, üzerine basınca büyük görüntüleyebilirsiniz.</p>
+<div class="gallery" id="galeri"></div>
+</div>
+
+<div class="card" id="iletisim">
+<h2>Ücretsiz Keşif</h2>
+<p>Yerinde ölçü alıyor, ihtiyaca göre özel mobilya çözümleri üretiyoruz.</p>
+<p><strong>Telefon / WhatsApp:</strong> 0532 324 86 04</p>
+<p><strong>Bölge:</strong> Yenibosna - İstanbul</p>
 </div>
 </section>
 
+<a class="whatsapp" href="https://wa.me/905323248604">WhatsApp</a>
+
+<div class="modal" id="modal">
+<span class="close" onclick="closeModal()">×</span>
+<span class="arrow prev" onclick="prevImage()">‹</span>
+<img id="modalImg" src="">
+<span class="arrow next" onclick="nextImage()">›</span>
+<div class="counter" id="counter"></div>
+</div>
+
 <footer>
-<p>Korkut Mobilya - Özel Ölçü Mobilya İmalatı</p>
+<p>Korkut Mobilya © Özel Ölçü Mobilya İmalatı</p>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/905323248604">WhatsApp</a>
+<script>
+const galeri = document.getElementById("galeri");
+
+const images = [
+  "mutfak-1.jpg",
+  "gardrop.1.png",
+  "gardrop.2.png",
+  "banyo.1.png",
+  "vitrin.1.png",
+  "vitrin.2.png",
+  "komidin.1.png",
+  "komidin.2.png",
+  "komidin.3.png",
+  "sifonyer.1.png",
+  "sifonyer.2.png",
+  "sifonyer.3.png",
+  "sifonyer.4.png",
+  "sifonyer.5.png",
+  "sifonyer.6.png",
+  "sifonyer.7.png",
+  "portmanto.1.png",
+  "ayakkabilik.1.png"
+];
+
+let loadedImages = [];
+let currentIndex = 0;
+
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
+const counter = document.getElementById("counter");
+
+images.forEach(function(src){
+  const link = document.createElement("a");
+  link.href = "javascript:void(0)";
+
+  const img = document.createElement("img");
+  img.src = src;
+  img.alt = "Korkut Mobilya Modeli";
+
+  img.onload = function(){
+    loadedImages.push(src);
+    const realIndex = loadedImages.length - 1;
+
+    link.onclick = function(){
+      openModal(realIndex);
+    };
+
+    galeri.appendChild(link);
+  };
+
+  img.onerror = function(){
+    link.remove();
+  };
+
+  link.appendChild(img);
+});
+
+function openModal(index){
+  if(loadedImages.length === 0) return;
+
+  currentIndex = index;
+  updateModal();
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal(){
+  modal.classList.remove("active");
+  document.body.style.overflow = "auto";
+}
+
+function updateModal(){
+  modalImg.src = loadedImages[currentIndex];
+  counter.innerText = (currentIndex + 1) + " / " + loadedImages.length;
+}
+
+function nextImage(){
+  if(loadedImages.length === 0) return;
+
+  currentIndex++;
+
+  if(currentIndex >= loadedImages.length){
+    currentIndex = 0;
+  }
+
+  updateModal();
+}
+
+function prevImage(){
+  if(loadedImages.length === 0) return;
+
+  currentIndex--;
+
+  if(currentIndex < 0){
+    currentIndex = loadedImages.length - 1;
+  }
+
+  updateModal();
+}
+
+document.addEventListener("keydown", function(e){
+  if(!modal.classList.contains("active")) return;
+
+  if(e.key === "ArrowRight"){
+    nextImage();
+  }
+
+  if(e.key === "ArrowLeft"){
+    prevImage();
+  }
+
+  if(e.key === "Escape"){
+    closeModal();
+  }
+});
+
+let startX = 0;
+
+modal.addEventListener("touchstart", function(e){
+  startX = e.touches[0].clientX;
+});
+
+modal.addEventListener("touchend", function(e){
+  let endX = e.changedTouches[0].clientX;
+  let diff = startX - endX;
+
+  if(Math.abs(diff) > 50){
+    if(diff > 0){
+      nextImage();
+    }else{
+      prevImage();
+    }
+  }
+});
+
+modal.addEventListener("click", function(e){
+  if(e.target === modal){
+    closeModal();
+  }
+});
+</script>
 
 </body>
 </html>
