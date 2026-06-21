@@ -1,1 +1,281 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Yenibosna Vitrin Modelleri | Korkut Mobilya</title>
+<meta name="description" content="Yenibosna, Bahçelievler, Bakırköy ve çevresinde özel ölçü vitrin ve salon mobilyası imalatı.">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{font-family:Arial,sans-serif;background:#f5f5f5;color:#222;line-height:1.6}
+
+header{background:#2b2118;color:white;padding:45px 20px;text-align:center}
+header h1{font-size:38px}
+header p{font-size:18px}
+
+section{max-width:1200px;margin:auto;padding:35px 20px}
+
+.card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+margin-bottom:20px;
+}
+
+.card h2{margin-bottom:10px;color:#2b2118}
+
+.gallery{
+display:flex;
+overflow-x:auto;
+gap:15px;
+padding:10px 0 18px;
+scroll-snap-type:x mandatory;
+-webkit-overflow-scrolling:touch;
+}
+
+.gallery a{
+flex:0 0 85%;
+scroll-snap-align:center;
+display:block;
+}
+
+.gallery img{
+width:100%;
+height:330px;
+object-fit:cover;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,.15);
+display:block;
+}
+
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25D366;
+color:white;
+padding:15px 20px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+z-index:999;
+}
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.95);
+z-index:9999;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+}
+
+.modal.active{display:flex}
+
+.modal img{
+max-width:100%;
+max-height:86vh;
+object-fit:contain;
+}
+
+.close{
+position:absolute;
+top:15px;
+right:20px;
+color:white;
+font-size:42px;
+cursor:pointer;
+z-index:10000;
+}
+
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+color:white;
+font-size:55px;
+cursor:pointer;
+padding:20px;
+z-index:10000;
+user-select:none;
+}
+
+.prev{left:5px}
+.next{right:5px}
+
+.counter{
+position:absolute;
+bottom:18px;
+left:50%;
+transform:translateX(-50%);
+color:white;
+font-size:16px;
+background:rgba(0,0,0,.4);
+padding:6px 14px;
+border-radius:20px;
+}
+
+@media(min-width:992px){
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+overflow:visible;
+gap:20px;
+}
+
+.gallery a{flex:none}
+
+.gallery img{
+height:320px;
+}
+}
+
+@media(max-width:768px){
+header{padding:35px 15px}
+header h1{font-size:30px}
+section{padding:25px 15px}
+.gallery img{height:300px}
+.arrow{font-size:42px;padding:12px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Vitrin Modelleri</h1>
+<p>Özel Ölçü Vitrin ve Salon Mobilyaları</p>
+</header>
+
+<section>
+
+<div class="card">
+<h2>Yenibosna Vitrin İmalatı</h2>
+<p>Korkut Mobilya olarak Yenibosna, Bahçelievler, Bakırköy ve çevresinde özel ölçü vitrin, salon vitrini ve mobilya üretimi yapıyoruz.</p>
+</div>
+
+<div class="card">
+<h2>Vitrin Modellerimiz</h2>
+<p>Modelleri sağa-sola kaydırabilir, resme basınca büyük görüntüleyebilirsiniz.</p>
+
+<div class="gallery" id="galeri"></div>
+</div>
+
+</section>
+
+<a class="whatsapp" href="https://wa.me/905323248604">WhatsApp</a>
+
+<div class="modal" id="modal">
+<span class="close" onclick="closeModal()">×</span>
+<span class="arrow prev" onclick="prevImage()">‹</span>
+<img id="modalImg" src="">
+<span class="arrow next" onclick="nextImage()">›</span>
+<div class="counter" id="counter"></div>
+</div>
+
+<script>
+const galeri = document.getElementById("galeri");
+const images = [];
+
+/* Mevcut dosyaların */
+const files = [
+  "vitrin.1 (2).png",
+  "vitrin.2.png",
+  "vitrin.3.png",
+  "vitrin.4.png",
+  "vitrin.5.png",
+  "vitrin.6.png",
+  "vitrin.7.png"
+];
+
+/* Bundan sonra ekleyeceğin yeni dosyalar otomatik denenecek */
+for(let i = 8; i <= 50; i++){
+  files.push(`vitrin.${i}.png`);
+}
+
+files.forEach((src) => {
+  const img = new Image();
+
+  img.onload = function(){
+    images.push(src);
+    const index = images.length - 1;
+
+    galeri.innerHTML += `
+      <a href="javascript:void(0)" onclick="openModal(${index})">
+        <img src="${src}" alt="Korkut Mobilya Vitrin Modeli ${index + 1}">
+      </a>
+    `;
+  };
+
+  img.src = src;
+});
+
+let currentIndex = 0;
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
+const counter = document.getElementById("counter");
+
+function openModal(index){
+  currentIndex = index;
+  updateModal();
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal(){
+  modal.classList.remove("active");
+  document.body.style.overflow = "auto";
+}
+
+function updateModal(){
+  modalImg.src = images[currentIndex];
+  counter.innerText = `${currentIndex + 1} / ${images.length}`;
+}
+
+function nextImage(){
+  currentIndex = (currentIndex + 1) % images.length;
+  updateModal();
+}
+
+function prevImage(){
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  updateModal();
+}
+
+document.addEventListener("keydown", function(e){
+  if(!modal.classList.contains("active")) return;
+  if(e.key === "ArrowRight") nextImage();
+  if(e.key === "ArrowLeft") prevImage();
+  if(e.key === "Escape") closeModal();
+});
+
+let startX = 0;
+
+modal.addEventListener("touchstart", function(e){
+  startX = e.touches[0].clientX;
+});
+
+modal.addEventListener("touchend", function(e){
+  const endX = e.changedTouches[0].clientX;
+  const diff = startX - endX;
+
+  if(Math.abs(diff) > 50){
+    diff > 0 ? nextImage() : prevImage();
+  }
+});
+
+modal.addEventListener("click", function(e){
+  if(e.target === modal){
+    closeModal();
+  }
+});
+</script>
+
+</body>
+</html>
