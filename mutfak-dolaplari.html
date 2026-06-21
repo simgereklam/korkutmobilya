@@ -12,20 +12,21 @@
 
 body{
 font-family:Arial,sans-serif;
-background:#f5f5f5;
+background:#f3f4f6;
 color:#222;
 line-height:1.6;
 }
 
 header{
-background:#2b2118;
+background:linear-gradient(135deg,#1f2937,#111827);
 color:white;
-padding:45px 20px;
+padding:60px 20px;
 text-align:center;
+border-bottom:4px solid #f97316;
 }
 
 header h1{font-size:38px}
-header p{font-size:18px}
+header p{font-size:18px;color:#fed7aa;margin-top:8px}
 
 section{
 max-width:1200px;
@@ -36,12 +37,20 @@ padding:35px 20px;
 .card{
 background:white;
 padding:25px;
-border-radius:12px;
-box-shadow:0 4px 15px rgba(0,0,0,.08);
+border-radius:14px;
+box-shadow:0 5px 18px rgba(0,0,0,.10);
 margin-bottom:20px;
+border-top:4px solid #f97316;
 }
 
-.card h2{margin-bottom:10px;color:#2b2118}
+.card h2{
+margin-bottom:10px;
+color:#111827;
+}
+
+.card p{
+color:#4b5563;
+}
 
 .gallery{
 display:flex;
@@ -65,6 +74,7 @@ object-fit:cover;
 border-radius:12px;
 box-shadow:0 4px 15px rgba(0,0,0,.15);
 display:block;
+cursor:pointer;
 }
 
 .whatsapp{
@@ -73,14 +83,14 @@ right:20px;
 bottom:20px;
 background:#25D366;
 color:white;
-padding:15px 20px;
+padding:15px 22px;
 border-radius:50px;
 text-decoration:none;
 font-weight:bold;
 z-index:999;
+box-shadow:0 4px 15px rgba(0,0,0,.25);
 }
 
-/* BÜYÜK RESİM MODALI */
 .modal{
 display:none;
 position:fixed;
@@ -132,9 +142,19 @@ left:50%;
 transform:translateX(-50%);
 color:white;
 font-size:16px;
-background:rgba(0,0,0,.4);
+background:#f97316;
 padding:6px 14px;
 border-radius:20px;
+}
+
+footer{
+background:#111827;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:40px;
+border-top:3px solid #f97316;
+font-size:15px;
 }
 
 @media(min-width:992px){
@@ -154,15 +174,23 @@ height:320px;
 
 @media(max-width:768px){
 header{
-padding:35px 15px;
+padding:38px 15px;
 }
 
 header h1{
 font-size:30px;
 }
 
+header p{
+font-size:16px;
+}
+
 section{
 padding:25px 15px;
+}
+
+.card{
+padding:20px;
 }
 
 .gallery img{
@@ -173,22 +201,36 @@ height:300px;
 font-size:42px;
 padding:12px;
 }
+
+.whatsapp{
+right:14px;
+bottom:14px;
+padding:13px 18px;
+font-size:15px;
+}
 }
 </style>
 </head>
 
 <body>
 
+<header>
+<h1>Mutfak Dolabı Modelleri</h1>
+<p>Özel Ölçü Mutfak Dolabı İmalatı</p>
+</header>
 
-
+<section>
 <div class="card">
 <h2>Mutfak Dolabı Modellerimiz</h2>
 <p>Modelleri sağa-sola kaydırabilir, resme basınca büyük görüntüleyebilirsiniz.</p>
 
 <div class="gallery" id="galeri"></div>
 </div>
-
 </section>
+
+<footer>
+<p>Korkut Mobilya - Özel Ölçü Mobilya İmalatı</p>
+</footer>
 
 <a class="whatsapp" href="https://wa.me/905323248604">WhatsApp</a>
 
@@ -247,7 +289,6 @@ function prevImage(){
   updateModal();
 }
 
-/* Klavye */
 document.addEventListener("keydown", function(e){
   if(!modal.classList.contains("active")) return;
   if(e.key === "ArrowRight") nextImage();
@@ -255,16 +296,14 @@ document.addEventListener("keydown", function(e){
   if(e.key === "Escape") closeModal();
 });
 
-/* Mobil parmakla sağa sola kaydırma */
 let startX = 0;
-let endX = 0;
 
 modal.addEventListener("touchstart", function(e){
   startX = e.touches[0].clientX;
 });
 
 modal.addEventListener("touchend", function(e){
-  endX = e.changedTouches[0].clientX;
+  let endX = e.changedTouches[0].clientX;
   let diff = startX - endX;
 
   if(Math.abs(diff) > 50){
@@ -276,7 +315,6 @@ modal.addEventListener("touchend", function(e){
   }
 });
 
-/* Siyah boşluğa basınca kapat */
 modal.addEventListener("click", function(e){
   if(e.target === modal){
     closeModal();
