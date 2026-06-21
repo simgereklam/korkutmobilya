@@ -350,48 +350,33 @@ bottom:14px;
 const galeri = document.getElementById("galeri");
 
 const images = [
-  "cocukodası.1.png",
-  "cocukodası.2.png",
-  "cocukodası.3.png",
-  "cocukodası.4.png",
-  "cocukodası.5.png"
+  "cocukodasi.1.png",
+  "cocukodasi.2.png",
+  "cocukodasi.3.png",
+  "cocukodasi.4.png",
+  "cocukodasi.5.png",
+  "cocukodasi.6.png",
+  "cocukodasi.7.png",
+  "cocukodasi.8.png",
+  "cocukodasi.9.png",
+  "cocukodasi.10.png"
 ];
 
-let loadedImages = [];
 let currentIndex = 0;
 
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
 const counter = document.getElementById("counter");
 
-images.forEach(function(src){
-  const link = document.createElement("a");
-  link.href = "javascript:void(0)";
-
-  const img = document.createElement("img");
-  img.src = src;
-  img.alt = "Korkut Mobilya Çocuk Odası Modeli";
-
-  img.onload = function(){
-    loadedImages.push(src);
-    const realIndex = loadedImages.length - 1;
-
-    link.onclick = function(){
-      openModal(realIndex);
-    };
-
-    galeri.appendChild(link);
-  };
-
-  img.onerror = function(){
-    console.log("Resim bulunamadı: " + src);
-  };
-
-  link.appendChild(img);
+images.forEach(function(src, index){
+  galeri.innerHTML += `
+    <a href="javascript:void(0)" onclick="openModal(${index})">
+      <img src="${src}" alt="Korkut Mobilya Çocuk Odası Modeli ${index + 1}">
+    </a>
+  `;
 });
 
 function openModal(index){
-  if(loadedImages.length === 0) return;
   currentIndex = index;
   updateModal();
   modal.classList.add("active");
@@ -404,25 +389,27 @@ function closeModal(){
 }
 
 function updateModal(){
-  modalImg.src = loadedImages[currentIndex];
-  counter.innerText = (currentIndex + 1) + " / " + loadedImages.length;
+  modalImg.src = images[currentIndex];
+  counter.innerText = (currentIndex + 1) + " / " + images.length;
 }
 
 function nextImage(){
-  if(loadedImages.length === 0) return;
   currentIndex++;
-  if(currentIndex >= loadedImages.length){
+
+  if(currentIndex >= images.length){
     currentIndex = 0;
   }
+
   updateModal();
 }
 
 function prevImage(){
-  if(loadedImages.length === 0) return;
   currentIndex--;
+
   if(currentIndex < 0){
-    currentIndex = loadedImages.length - 1;
+    currentIndex = images.length - 1;
   }
+
   updateModal();
 }
 
