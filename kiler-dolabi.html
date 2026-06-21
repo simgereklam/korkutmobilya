@@ -9,17 +9,18 @@
 <meta name="robots" content="index,follow">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
 font-family:Arial,sans-serif;
-background:#f4f4f4;
+background:#f3f4f6;
 color:#222;
 line-height:1.6;
 }
 
 nav{
-background:#2b2118;
+background:#111827;
+border-bottom:3px solid #f97316;
 padding:14px 35px;
 position:sticky;
 top:0;
@@ -31,9 +32,10 @@ align-items:center;
 
 .logo{
 color:white;
-font-size:24px;
+font-size:32px;
 font-weight:bold;
 text-decoration:none;
+letter-spacing:.5px;
 }
 
 nav ul{
@@ -43,7 +45,7 @@ align-items:center;
 gap:28px;
 }
 
-nav li{position:relative;}
+nav li{position:relative}
 
 nav a{
 color:white;
@@ -51,6 +53,8 @@ text-decoration:none;
 font-weight:bold;
 font-size:16px;
 }
+
+nav a:hover{color:#f97316}
 
 .dropdown-content{
 display:none;
@@ -60,6 +64,8 @@ left:0;
 background:white;
 min-width:220px;
 box-shadow:0 5px 20px rgba(0,0,0,.18);
+border-radius:8px;
+overflow:hidden;
 z-index:999;
 }
 
@@ -70,19 +76,23 @@ color:#222;
 border-bottom:1px solid #eee;
 }
 
-.dropdown:hover .dropdown-content{
-display:block;
+.dropdown-content a:hover{
+background:#fff7ed;
+color:#f97316;
 }
 
+.dropdown:hover .dropdown-content{display:block}
+
 header{
-background:#2b2118;
+background:linear-gradient(135deg,#1f2937,#111827);
 color:white;
-padding:45px 20px;
+padding:60px 20px;
 text-align:center;
+border-bottom:4px solid #f97316;
 }
 
 header h1{font-size:38px}
-header p{font-size:18px}
+header p{font-size:18px;color:#fed7aa;margin-top:8px}
 
 section{
 max-width:1200px;
@@ -93,14 +103,19 @@ padding:35px 20px;
 .card{
 background:white;
 padding:25px;
-border-radius:12px;
-box-shadow:0 4px 15px rgba(0,0,0,.08);
+border-radius:14px;
+box-shadow:0 5px 18px rgba(0,0,0,.10);
 margin-bottom:20px;
+border-top:4px solid #f97316;
 }
 
 .card h2{
 margin-bottom:10px;
-color:#2b2118;
+color:#111827;
+}
+
+.card p{
+color:#4b5563;
 }
 
 .gallery{
@@ -125,6 +140,7 @@ object-fit:cover;
 border-radius:12px;
 box-shadow:0 4px 15px rgba(0,0,0,.15);
 display:block;
+cursor:pointer;
 }
 
 .whatsapp{
@@ -139,6 +155,7 @@ text-decoration:none;
 font-weight:bold;
 font-size:16px;
 z-index:999;
+box-shadow:0 4px 15px rgba(0,0,0,.25);
 }
 
 .modal{
@@ -192,17 +209,18 @@ left:50%;
 transform:translateX(-50%);
 color:white;
 font-size:16px;
-background:rgba(0,0,0,.4);
+background:#f97316;
 padding:6px 14px;
 border-radius:20px;
 }
 
 footer{
-background:#2b2118;
+background:#111827;
 color:white;
 text-align:center;
 padding:30px;
 margin-top:40px;
+border-top:3px solid #f97316;
 font-size:15px;
 }
 
@@ -222,7 +240,6 @@ height:320px;
 }
 
 @media(max-width:768px){
-
 nav{
 padding:12px 15px;
 flex-direction:column;
@@ -250,15 +267,23 @@ transform:translateX(-50%);
 }
 
 header{
-padding:35px 15px;
+padding:38px 15px;
 }
 
 header h1{
 font-size:30px;
 }
 
+header p{
+font-size:16px;
+}
+
 section{
 padding:25px 15px;
+}
+
+.card{
+padding:20px;
 }
 
 .gallery img{
@@ -302,7 +327,7 @@ bottom:14px;
 <a href="dublexmerdiven.html">Dubleks Merdiven</a>
 <a href="portmanto.html">Portmanto</a>
 <a href="kiler-dolabi.html">Kiler Dolabı</a>
-<a href="ayakkabıdolabı.html">Ayakkabılık</a>
+<a href="ayakkabilik.html">Ayakkabılık</a>
 </div>
 </li>
 
@@ -317,16 +342,12 @@ bottom:14px;
 </header>
 
 <section>
-
-
-
 <div class="card">
 <h2>Kiler Dolabı Modellerimiz</h2>
-<p>Modelleri sağa sola kaydırabilir, resme basınca büyük görüntüleyebilirsiniz.</p>
+<p>Modelleri sağa-sola kaydırabilir, resme basınca büyük görüntüleyebilirsiniz.</p>
 
 <div class="gallery" id="galeri"></div>
 </div>
-
 </section>
 
 <footer>
@@ -347,9 +368,9 @@ bottom:14px;
 const galeri = document.getElementById("galeri");
 
 const images = [
-  "kiler.1.png",
-  "kiler.2.png",
-  "kiler.3.png"
+"kiler.1.png",
+"kiler.2.png",
+"kiler.3.png"
 ];
 
 let loadedImages = [];
@@ -360,106 +381,106 @@ const modalImg = document.getElementById("modalImg");
 const counter = document.getElementById("counter");
 
 images.forEach(function(src){
-  const link = document.createElement("a");
-  link.href = "javascript:void(0)";
+const link = document.createElement("a");
+link.href = "javascript:void(0)";
 
-  const img = document.createElement("img");
-  img.src = src;
-  img.alt = "Korkut Mobilya Kiler Dolabı Modeli";
+const img = document.createElement("img");
+img.src = src;
+img.alt = "Korkut Mobilya Kiler Dolabı Modeli";
 
-  img.onload = function(){
-    loadedImages.push(src);
-    const realIndex = loadedImages.length - 1;
+img.onload = function(){
+loadedImages.push(src);
+const realIndex = loadedImages.length - 1;
 
-    link.onclick = function(){
-      openModal(realIndex);
-    };
+link.onclick = function(){
+openModal(realIndex);
+};
 
-    galeri.appendChild(link);
-  };
+galeri.appendChild(link);
+};
 
-  img.onerror = function(){
-    console.log("Resim bulunamadı: " + src);
-  };
+img.onerror = function(){
+console.log("Resim bulunamadı: " + src);
+};
 
-  link.appendChild(img);
+link.appendChild(img);
 });
 
 function openModal(index){
-  if(loadedImages.length === 0) return;
-  currentIndex = index;
-  updateModal();
-  modal.classList.add("active");
-  document.body.style.overflow = "hidden";
+if(loadedImages.length === 0) return;
+currentIndex = index;
+updateModal();
+modal.classList.add("active");
+document.body.style.overflow = "hidden";
 }
 
 function closeModal(){
-  modal.classList.remove("active");
-  document.body.style.overflow = "auto";
+modal.classList.remove("active");
+document.body.style.overflow = "auto";
 }
 
 function updateModal(){
-  modalImg.src = loadedImages[currentIndex];
-  counter.innerText = (currentIndex + 1) + " / " + loadedImages.length;
+modalImg.src = loadedImages[currentIndex];
+counter.innerText = (currentIndex + 1) + " / " + loadedImages.length;
 }
 
 function nextImage(){
-  if(loadedImages.length === 0) return;
-  currentIndex++;
-  if(currentIndex >= loadedImages.length){
-    currentIndex = 0;
-  }
-  updateModal();
+if(loadedImages.length === 0) return;
+currentIndex++;
+if(currentIndex >= loadedImages.length){
+currentIndex = 0;
+}
+updateModal();
 }
 
 function prevImage(){
-  if(loadedImages.length === 0) return;
-  currentIndex--;
-  if(currentIndex < 0){
-    currentIndex = loadedImages.length - 1;
-  }
-  updateModal();
+if(loadedImages.length === 0) return;
+currentIndex--;
+if(currentIndex < 0){
+currentIndex = loadedImages.length - 1;
+}
+updateModal();
 }
 
 document.addEventListener("keydown", function(e){
-  if(!modal.classList.contains("active")) return;
+if(!modal.classList.contains("active")) return;
 
-  if(e.key === "ArrowRight"){
-    nextImage();
-  }
+if(e.key === "ArrowRight"){
+nextImage();
+}
 
-  if(e.key === "ArrowLeft"){
-    prevImage();
-  }
+if(e.key === "ArrowLeft"){
+prevImage();
+}
 
-  if(e.key === "Escape"){
-    closeModal();
-  }
+if(e.key === "Escape"){
+closeModal();
+}
 });
 
 let startX = 0;
 
 modal.addEventListener("touchstart", function(e){
-  startX = e.touches[0].clientX;
+startX = e.touches[0].clientX;
 });
 
 modal.addEventListener("touchend", function(e){
-  let endX = e.changedTouches[0].clientX;
-  let diff = startX - endX;
+let endX = e.changedTouches[0].clientX;
+let diff = startX - endX;
 
-  if(Math.abs(diff) > 50){
-    if(diff > 0){
-      nextImage();
-    }else{
-      prevImage();
-    }
-  }
+if(Math.abs(diff) > 50){
+if(diff > 0){
+nextImage();
+}else{
+prevImage();
+}
+}
 });
 
 modal.addEventListener("click", function(e){
-  if(e.target === modal){
-    closeModal();
-  }
+if(e.target === modal){
+closeModal();
+}
 });
 </script>
 
