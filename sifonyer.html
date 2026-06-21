@@ -4,28 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Yenibosna Sifonyer Modelleri | Korkut Mobilya</title>
+<title>Yenibosna Şifonyer Modelleri | Korkut Mobilya</title>
 <meta name="description" content="Yenibosna, Bahçelievler, Bakırköy ve çevresinde özel ölçü şifonyer imalatı.">
+<meta name="robots" content="index,follow">
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
 body{
 font-family:Arial,sans-serif;
-background:#f5f5f5;
+background:#f3f4f6;
 color:#222;
 line-height:1.6;
 }
 
 header{
-background:#2b2118;
+background:linear-gradient(135deg,#1f2937,#111827);
 color:white;
-padding:45px 20px;
+padding:60px 20px;
 text-align:center;
+border-bottom:4px solid #f97316;
 }
 
 header h1{font-size:38px}
-header p{font-size:18px}
+header p{font-size:18px;color:#fed7aa;margin-top:8px}
 
 section{
 max-width:1200px;
@@ -36,14 +38,19 @@ padding:35px 20px;
 .card{
 background:white;
 padding:25px;
-border-radius:12px;
-box-shadow:0 4px 15px rgba(0,0,0,.08);
+border-radius:14px;
+box-shadow:0 5px 18px rgba(0,0,0,.10);
 margin-bottom:20px;
+border-top:4px solid #f97316;
 }
 
 .card h2{
 margin-bottom:10px;
-color:#2b2118;
+color:#111827;
+}
+
+.card p{
+color:#4b5563;
 }
 
 .gallery{
@@ -68,6 +75,7 @@ object-fit:cover;
 border-radius:12px;
 box-shadow:0 4px 15px rgba(0,0,0,.15);
 display:block;
+cursor:pointer;
 }
 
 .whatsapp{
@@ -76,11 +84,12 @@ right:20px;
 bottom:20px;
 background:#25D366;
 color:white;
-padding:15px 20px;
+padding:15px 22px;
 border-radius:50px;
 text-decoration:none;
 font-weight:bold;
 z-index:999;
+box-shadow:0 4px 15px rgba(0,0,0,.25);
 }
 
 .modal{
@@ -134,9 +143,19 @@ left:50%;
 transform:translateX(-50%);
 color:white;
 font-size:16px;
-background:rgba(0,0,0,.4);
+background:#f97316;
 padding:6px 14px;
 border-radius:20px;
+}
+
+footer{
+background:#111827;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:40px;
+border-top:3px solid #f97316;
+font-size:15px;
 }
 
 @media(min-width:992px){
@@ -155,11 +174,41 @@ height:320px;
 }
 
 @media(max-width:768px){
-header{padding:35px 15px}
-header h1{font-size:30px}
-section{padding:25px 15px}
-.gallery img{height:300px}
-.arrow{font-size:42px;padding:12px}
+header{
+padding:38px 15px;
+}
+
+header h1{
+font-size:30px;
+}
+
+header p{
+font-size:16px;
+}
+
+section{
+padding:25px 15px;
+}
+
+.card{
+padding:20px;
+}
+
+.gallery img{
+height:300px;
+}
+
+.arrow{
+font-size:42px;
+padding:12px;
+}
+
+.whatsapp{
+right:14px;
+bottom:14px;
+padding:13px 18px;
+font-size:15px;
+}
 }
 </style>
 </head>
@@ -167,22 +216,22 @@ section{padding:25px 15px}
 <body>
 
 <header>
-<h1>Sifonyer Modelleri</h1>
-<p>Özel Ölçü sifonyer İmalatı</p>
+<h1>Şifonyer Modelleri</h1>
+<p>Özel Ölçü Şifonyer İmalatı</p>
 </header>
 
 <section>
-
-
-
 <div class="card">
-<h2>sifonyer Modellerimiz</h2>
-<p>Modelleri sağa sola kaydırabilir, resme basınca büyük görüntüleyebilirsiniz.</p>
+<h2>Şifonyer Modellerimiz</h2>
+<p>Modelleri sağa-sola kaydırabilir, resme basınca büyük görüntüleyebilirsiniz.</p>
 
 <div class="gallery" id="galeri"></div>
 </div>
-
 </section>
+
+<footer>
+<p>Korkut Mobilya - Özel Ölçü Mobilya İmalatı</p>
+</footer>
 
 <a class="whatsapp" href="https://wa.me/905323248604">WhatsApp</a>
 
@@ -198,13 +247,13 @@ section{padding:25px 15px}
 const galeri = document.getElementById("galeri");
 
 const images = [
-  "sifonyer.1.png",
-  "sifonyer.2.png",
-  "sifonyer.3.png",
-  "sifonyer.4.png",
-  "sifonyer.5.png",
-  "sifonyer.6.png",
-  "sifonyer.7.png"
+"sifonyer.1.png",
+"sifonyer.2.png",
+"sifonyer.3.png",
+"sifonyer.4.png",
+"sifonyer.5.png",
+"sifonyer.6.png",
+"sifonyer.7.png"
 ];
 
 let loadedImages = [];
@@ -215,113 +264,113 @@ const modalImg = document.getElementById("modalImg");
 const counter = document.getElementById("counter");
 
 images.forEach(function(src){
-  const link = document.createElement("a");
-  link.href = "javascript:void(0)";
+const link = document.createElement("a");
+link.href = "javascript:void(0)";
 
-  const img = document.createElement("img");
-  img.src = src;
-  img.alt = "Korkut Mobilya Şifonyer Modeli";
+const img = document.createElement("img");
+img.src = src;
+img.alt = "Korkut Mobilya Şifonyer Modeli";
 
-  img.onload = function(){
-    loadedImages.push(src);
-    const realIndex = loadedImages.length - 1;
+img.onload = function(){
+loadedImages.push(src);
+const realIndex = loadedImages.length - 1;
 
-    link.onclick = function(){
-      openModal(realIndex);
-    };
+link.onclick = function(){
+openModal(realIndex);
+};
 
-    galeri.appendChild(link);
-  };
+galeri.appendChild(link);
+};
 
-  img.onerror = function(){
-    console.log("Resim bulunamadı: " + src);
-  };
+img.onerror = function(){
+console.log("Resim bulunamadı: " + src);
+};
 
-  link.appendChild(img);
+link.appendChild(img);
 });
 
 function openModal(index){
-  if(loadedImages.length === 0) return;
+if(loadedImages.length === 0) return;
 
-  currentIndex = index;
-  updateModal();
-  modal.classList.add("active");
-  document.body.style.overflow = "hidden";
+currentIndex = index;
+updateModal();
+modal.classList.add("active");
+document.body.style.overflow = "hidden";
 }
 
 function closeModal(){
-  modal.classList.remove("active");
-  document.body.style.overflow = "auto";
+modal.classList.remove("active");
+document.body.style.overflow = "auto";
 }
 
 function updateModal(){
-  modalImg.src = loadedImages[currentIndex];
-  counter.innerText = (currentIndex + 1) + " / " + loadedImages.length;
+modalImg.src = loadedImages[currentIndex];
+counter.innerText = (currentIndex + 1) + " / " + loadedImages.length;
 }
 
 function nextImage(){
-  if(loadedImages.length === 0) return;
+if(loadedImages.length === 0) return;
 
-  currentIndex++;
+currentIndex++;
 
-  if(currentIndex >= loadedImages.length){
-    currentIndex = 0;
-  }
+if(currentIndex >= loadedImages.length){
+currentIndex = 0;
+}
 
-  updateModal();
+updateModal();
 }
 
 function prevImage(){
-  if(loadedImages.length === 0) return;
+if(loadedImages.length === 0) return;
 
-  currentIndex--;
+currentIndex--;
 
-  if(currentIndex < 0){
-    currentIndex = loadedImages.length - 1;
-  }
+if(currentIndex < 0){
+currentIndex = loadedImages.length - 1;
+}
 
-  updateModal();
+updateModal();
 }
 
 document.addEventListener("keydown", function(e){
-  if(!modal.classList.contains("active")) return;
+if(!modal.classList.contains("active")) return;
 
-  if(e.key === "ArrowRight"){
-    nextImage();
-  }
+if(e.key === "ArrowRight"){
+nextImage();
+}
 
-  if(e.key === "ArrowLeft"){
-    prevImage();
-  }
+if(e.key === "ArrowLeft"){
+prevImage();
+}
 
-  if(e.key === "Escape"){
-    closeModal();
-  }
+if(e.key === "Escape"){
+closeModal();
+}
 });
 
 let startX = 0;
 
 modal.addEventListener("touchstart", function(e){
-  startX = e.touches[0].clientX;
+startX = e.touches[0].clientX;
 });
 
 modal.addEventListener("touchend", function(e){
-  let endX = e.changedTouches[0].clientX;
-  let diff = startX - endX;
+let endX = e.changedTouches[0].clientX;
+let diff = startX - endX;
 
-  if(Math.abs(diff) > 50){
-    if(diff > 0){
-      nextImage();
-    }else{
-      prevImage();
-    }
-  }
+if(Math.abs(diff) > 50){
+if(diff > 0){
+nextImage();
+}else{
+prevImage();
+}
+}
 });
 
 modal.addEventListener("click", function(e){
-  if(e.target === modal){
-    closeModal();
-  }
+if(e.target === modal){
+closeModal();
+}
 });
 </script>
 
