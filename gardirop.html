@@ -8,7 +8,11 @@
 <meta name="description" content="Yenibosna, Bahçelievler, Bakırköy ve çevresinde özel ölçü gardırop, sürgülü gardırop ve kapaklı gardırop imalatı.">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
 body{
 font-family:Arial,sans-serif;
@@ -24,8 +28,13 @@ padding:45px 20px;
 text-align:center;
 }
 
-header h1{font-size:38px}
-header p{font-size:18px}
+header h1{
+font-size:38px;
+}
+
+header p{
+font-size:18px;
+}
 
 section{
 max-width:1200px;
@@ -41,7 +50,10 @@ box-shadow:0 4px 15px rgba(0,0,0,.08);
 margin-bottom:20px;
 }
 
-.card h2{margin-bottom:10px;color:#2b2118}
+.card h2{
+margin-bottom:10px;
+color:#2b2118;
+}
 
 .gallery{
 display:flex;
@@ -91,7 +103,9 @@ justify-content:center;
 overflow:hidden;
 }
 
-.modal.active{display:flex}
+.modal.active{
+display:flex;
+}
 
 .modal img{
 max-width:100%;
@@ -121,8 +135,13 @@ z-index:10000;
 user-select:none;
 }
 
-.prev{left:5px}
-.next{right:5px}
+.prev{
+left:5px;
+}
+
+.next{
+right:5px;
+}
 
 .counter{
 position:absolute;
@@ -144,7 +163,9 @@ overflow:visible;
 gap:20px;
 }
 
-.gallery a{flex:none}
+.gallery a{
+flex:none;
+}
 
 .gallery img{
 height:320px;
@@ -152,11 +173,26 @@ height:320px;
 }
 
 @media(max-width:768px){
-header{padding:35px 15px}
-header h1{font-size:30px}
-section{padding:25px 15px}
-.gallery img{height:300px}
-.arrow{font-size:42px;padding:12px}
+header{
+padding:35px 15px;
+}
+
+header h1{
+font-size:30px;
+}
+
+section{
+padding:25px 15px;
+}
+
+.gallery img{
+height:300px;
+}
+
+.arrow{
+font-size:42px;
+padding:12px;
+}
 }
 </style>
 </head>
@@ -177,7 +213,7 @@ section{padding:25px 15px}
 
 <div class="card">
 <h2>Gardırop Modellerimiz</h2>
-<p>Modelleri sağa-sola kaydırabilir, resme basınca büyük görüntüleyebilirsiniz.</p>
+<p>Modelleri sağa sola kaydırabilir, resme basınca büyük görüntüleyebilirsiniz.</p>
 
 <div class="gallery" id="galeri"></div>
 </div>
@@ -197,32 +233,34 @@ section{padding:25px 15px}
 <script>
 const galeri = document.getElementById("galeri");
 
-const images = [
-  "gardrop.1.png",
-  "gardrop.2.png",
-  "gardrop.3.png",
-  "gardrop.4.png",
-  "gardrop.5.png",
-  "gardrop.8.png",
-  "gardrop.9.png",
-  "gardrop.10.png",
-  "gardrop.11.png",
-  "gardrop.12.png",
-  "gardrop.13.png",
-  "gardrop.14.png",
-  "gardrop.15.png"
-];
+/*
+Yeni görsel eklemek için sadece toplamResim sayısını artır.
+Örnek dosya isimleri:
+gardrop.1.png
+gardrop.2.png
+gardrop.3.png
+...
+gardrop.20.png
+*/
 
+const toplamResim = 15;
 
-images.forEach((src, index) => {
+const images = [];
+
+for(let i = 1; i <= toplamResim; i++){
+  images.push("gardrop." + i + ".png");
+}
+
+images.forEach(function(src, index){
   galeri.innerHTML += `
     <a href="javascript:void(0)" onclick="openModal(${index})">
-      <img src="${src}" alt="Korkut Mobilya Gardırop Modeli ${index + 1}">
+      <img src="${src}" alt="Korkut Mobilya Gardırop Modeli ${index + 1}" onerror="this.parentElement.style.display='none'">
     </a>
   `;
 });
 
 let currentIndex = 0;
+
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
 const counter = document.getElementById("counter");
@@ -241,35 +279,53 @@ function closeModal(){
 
 function updateModal(){
   modalImg.src = images[currentIndex];
-  counter.innerText = `${currentIndex + 1} / ${images.length}`;
+  counter.innerText = (currentIndex + 1) + " / " + images.length;
 }
 
 function nextImage(){
-  currentIndex = (currentIndex + 1) % images.length;
+  currentIndex = currentIndex + 1;
+
+  if(currentIndex >= images.length){
+    currentIndex = 0;
+  }
+
   updateModal();
 }
 
 function prevImage(){
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  currentIndex = currentIndex - 1;
+
+  if(currentIndex < 0){
+    currentIndex = images.length - 1;
+  }
+
   updateModal();
 }
 
 document.addEventListener("keydown", function(e){
   if(!modal.classList.contains("active")) return;
-  if(e.key === "ArrowRight") nextImage();
-  if(e.key === "ArrowLeft") prevImage();
-  if(e.key === "Escape") closeModal();
+
+  if(e.key === "ArrowRight"){
+    nextImage();
+  }
+
+  if(e.key === "ArrowLeft"){
+    prevImage();
+  }
+
+  if(e.key === "Escape"){
+    closeModal();
+  }
 });
 
 let startX = 0;
-let endX = 0;
 
 modal.addEventListener("touchstart", function(e){
   startX = e.touches[0].clientX;
 });
 
 modal.addEventListener("touchend", function(e){
-  endX = e.changedTouches[0].clientX;
+  let endX = e.changedTouches[0].clientX;
   let diff = startX - endX;
 
   if(Math.abs(diff) > 50){
