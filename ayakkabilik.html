@@ -21,7 +21,7 @@ line-height:1.6;
 nav{
 background:#111827;
 border-bottom:3px solid #f97316;
-  padding:14px 35px;
+padding:14px 35px;
 position:sticky;
 top:0;
 z-index:999;
@@ -31,7 +31,11 @@ align-items:center;
 }
 
 .logo{
-font-size:34px;
+color:white;
+font-size:32px;
+font-weight:bold;
+text-decoration:none;
+letter-spacing:.5px;
 }
 
 nav ul{
@@ -50,6 +54,10 @@ font-weight:bold;
 font-size:16px;
 }
 
+nav a:hover{
+color:#f97316;
+}
+
 .dropdown-content{
 display:none;
 position:absolute;
@@ -58,6 +66,8 @@ left:0;
 background:white;
 min-width:220px;
 box-shadow:0 5px 20px rgba(0,0,0,.18);
+border-radius:8px;
+overflow:hidden;
 z-index:999;
 }
 
@@ -68,19 +78,32 @@ color:#222;
 border-bottom:1px solid #eee;
 }
 
+.dropdown-content a:hover{
+background:#fff7ed;
+color:#f97316;
+}
+
 .dropdown:hover .dropdown-content{
 display:block;
 }
 
-header h1{font-size:38px}
+header{
+background:linear-gradient(135deg,#1f2937,#111827);
+color:white;
+padding:60px 20px;
+text-align:center;
+border-bottom:4px solid #f97316;
+}
+
+header h1{
+font-size:38px;
+}
+
 header p{
 font-size:18px;
 color:#fed7aa;
 margin-top:8px;
 }
-
-header h1{font-size:38px}
-header p{font-size:18px}
 
 section{
 max-width:1200px;
@@ -99,7 +122,11 @@ border-top:4px solid #f97316;
 
 .card h2{
 margin-bottom:10px;
-color:#2b2118;
+color:#111827;
+}
+
+.card p{
+color:#4b5563;
 }
 
 .gallery{
@@ -124,6 +151,7 @@ object-fit:cover;
 border-radius:12px;
 box-shadow:0 4px 15px rgba(0,0,0,.15);
 display:block;
+cursor:pointer;
 }
 
 .whatsapp{
@@ -138,6 +166,7 @@ text-decoration:none;
 font-weight:bold;
 font-size:16px;
 z-index:999;
+box-shadow:0 4px 15px rgba(0,0,0,.25);
 }
 
 .modal{
@@ -151,7 +180,9 @@ justify-content:center;
 overflow:hidden;
 }
 
-.modal.active{display:flex}
+.modal.active{
+display:flex;
+}
 
 .modal img{
 max-width:100%;
@@ -181,8 +212,8 @@ z-index:10000;
 user-select:none;
 }
 
-.prev{left:5px}
-.next{right:5px}
+.prev{left:5px;}
+.next{right:5px;}
 
 .counter{
 position:absolute;
@@ -191,7 +222,7 @@ left:50%;
 transform:translateX(-50%);
 color:white;
 font-size:16px;
-background:rgba(0,0,0,.4);
+background:#f97316;
 padding:6px 14px;
 border-radius:20px;
 }
@@ -214,7 +245,9 @@ overflow:visible;
 gap:20px;
 }
 
-.gallery a{flex:none}
+.gallery a{
+flex:none;
+}
 
 .gallery img{
 height:320px;
@@ -222,7 +255,6 @@ height:320px;
 }
 
 @media(max-width:768px){
-
 nav{
 padding:12px 15px;
 flex-direction:column;
@@ -250,15 +282,23 @@ transform:translateX(-50%);
 }
 
 header{
-padding:35px 15px;
+padding:38px 15px;
 }
 
 header h1{
 font-size:30px;
 }
 
+header p{
+font-size:16px;
+}
+
 section{
 padding:25px 15px;
+}
+
+.card{
+padding:20px;
 }
 
 .gallery img{
@@ -298,7 +338,7 @@ bottom:14px;
 <a href="kapi.html">Kapı</a>
 <a href="vitrin.html">Vitrin</a>
 <a href="komidin.html">Komidin</a>
-<a href="sifonyer.html">Sifonyer</a>
+<a href="sifonyer.html">Şifonyer</a>
 <a href="dublexmerdiven.html">Dubleks Merdiven</a>
 <a href="portmanto.html">Portmanto</a>
 <a href="kiler-dolabi.html">Kiler Dolabı</a>
@@ -307,22 +347,22 @@ bottom:14px;
 </li>
 
 <li><a href="index.html#hakkimizda">Hakkımızda</a></li>
-<li><a href="index.html#iletisim">İletişim</a></li>
+<li><a href="iletisim.html">İletişim</a></li>
 </ul>
 </nav>
 
 <header>
-
+<h1>Ayakkabılık Modelleri</h1>
+<p>Özel Ölçü Ayakkabılık İmalatı</p>
 </header>
 
 <section>
-
-
-
+<div class="card">
+<h2>Ayakkabılık Modellerimiz</h2>
+<p>Modelleri sağa-sola kaydırabilir, resme basınca büyük görüntüleyebilirsiniz.</p>
 
 <div class="gallery" id="galeri"></div>
 </div>
-
 </section>
 
 <footer>
@@ -343,12 +383,12 @@ bottom:14px;
 const galeri = document.getElementById("galeri");
 
 const images = [
-  "ayakkabilik.1.png",
-  "ayakkabilik.2.png",
-  "ayakkabilik.3.png",
-  "ayakkabilik.4.png",
-  "ayakkabilik.5.png",
-  "ayakkabilik.6.png"
+"ayakkabilik.1.png",
+"ayakkabilik.2.png",
+"ayakkabilik.3.png",
+"ayakkabilik.4.png",
+"ayakkabilik.5.png",
+"ayakkabilik.6.png"
 ];
 
 let currentIndex = 0;
@@ -357,90 +397,86 @@ const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
 const counter = document.getElementById("counter");
 
-images.forEach(function(src, index){
-  galeri.innerHTML += `
-    <a href="javascript:void(0)" onclick="openModal(${index})">
-      <img src="${src}" alt="Korkut Mobilya Ayakkabılık Modeli ${index + 1}">
-    </a>
-  `;
+images.forEach(function(src,index){
+galeri.innerHTML += `
+<a href="javascript:void(0)" onclick="openModal(${index})">
+<img src="${src}" alt="Korkut Mobilya Ayakkabılık Modeli ${index + 1}">
+</a>
+`;
 });
 
 function openModal(index){
-  currentIndex = index;
-  updateModal();
-  modal.classList.add("active");
-  document.body.style.overflow = "hidden";
+currentIndex = index;
+updateModal();
+modal.classList.add("active");
+document.body.style.overflow = "hidden";
 }
 
 function closeModal(){
-  modal.classList.remove("active");
-  document.body.style.overflow = "auto";
+modal.classList.remove("active");
+document.body.style.overflow = "auto";
 }
 
 function updateModal(){
-  modalImg.src = images[currentIndex];
-  counter.innerText = (currentIndex + 1) + " / " + images.length;
+modalImg.src = images[currentIndex];
+counter.innerText = (currentIndex + 1) + " / " + images.length;
 }
 
 function nextImage(){
-  currentIndex++;
-
-  if(currentIndex >= images.length){
-    currentIndex = 0;
-  }
-
-  updateModal();
+currentIndex++;
+if(currentIndex >= images.length){
+currentIndex = 0;
+}
+updateModal();
 }
 
 function prevImage(){
-  currentIndex--;
-
-  if(currentIndex < 0){
-    currentIndex = images.length - 1;
-  }
-
-  updateModal();
+currentIndex--;
+if(currentIndex < 0){
+currentIndex = images.length - 1;
+}
+updateModal();
 }
 
 document.addEventListener("keydown", function(e){
-  if(!modal.classList.contains("active")) return;
+if(!modal.classList.contains("active")) return;
 
-  if(e.key === "ArrowRight"){
-    nextImage();
-  }
+if(e.key === "ArrowRight"){
+nextImage();
+}
 
-  if(e.key === "ArrowLeft"){
-    prevImage();
-  }
+if(e.key === "ArrowLeft"){
+prevImage();
+}
 
-  if(e.key === "Escape"){
-    closeModal();
-  }
+if(e.key === "Escape"){
+closeModal();
+}
 });
 
 let startX = 0;
 
 modal.addEventListener("touchstart", function(e){
-  startX = e.touches[0].clientX;
+startX = e.touches[0].clientX;
 });
 
 modal.addEventListener("touchend", function(e){
-  let endX = e.changedTouches[0].clientX;
-  let diff = startX - endX;
+let endX = e.changedTouches[0].clientX;
+let diff = startX - endX;
 
-  if(Math.abs(diff) > 50){
-    if(diff > 0){
-      nextImage();
-    }else{
-      prevImage();
-    }
-  }
+if(Math.abs(diff) > 50){
+if(diff > 0){
+nextImage();
+}else{
+prevImage();
+}
+}
 });
 
 modal.addEventListener("click", function(e){
-  if(e.target === modal){
-    closeModal();
-  }
+if(e.target === modal){
+closeModal();
+}
 });
 </script>
 
