@@ -93,19 +93,6 @@ margin:auto;
 padding:35px 20px;
 }
 
-.card{
-background:white;
-padding:25px;
-border-radius:12px;
-box-shadow:0 4px 15px rgba(0,0,0,.08);
-margin-bottom:20px;
-}
-
-.card h2{
-margin-bottom:10px;
-color:#2b2118;
-}
-
 .gallery{
 display:flex;
 overflow-x:auto;
@@ -225,7 +212,6 @@ height:320px;
 }
 
 @media(max-width:768px){
-
 nav{
 padding:12px 15px;
 flex-direction:column;
@@ -302,7 +288,8 @@ bottom:14px;
 <a href="vitrin.html">Vitrin</a>
 <a href="komidin.html">Komidin</a>
 <a href="sifonyer.html">Sifonyer</a>
-<a href="dublexmerdiven.html">Dubleks Merdiven</a>
+<!-- Sayfa adı duplexmerdiven.html olarak düzeltildi -->
+<a href="duplexmerdiven.html">Dubleks Merdiven</a>
 <a href="portmanto.html">Portmanto</a>
 <a href="kiler-dolabi.html">Kiler Dolabı</a>
 <a href="ayakkabıdolabı.html">Ayakkabılık</a>
@@ -340,15 +327,16 @@ bottom:14px;
 <script>
 const galeri = document.getElementById("galeri");
 
+// Resim adlarındaki b ve p harfi farklılıkları birebir eşleştirildi:
 const images = [
   "dublexmerdiven.1.png",
   "dublexmerdiven.2.png",
   "dublexmerdiven.3.png",
   "dublexmerdiven.4.png",
   "dublexmerdiven.5.png",
-  "dublexmerdiven.6.png",
-  "dublexmerdiven.7.png",
-  "dublexmerdiven.8.png"
+  "duplexmerdiven.6.png",
+  "duplexmerdiven.7.png",
+  "duplexmerdiven.8.png"
 ];
 
 let loadedImages = [];
@@ -363,7 +351,6 @@ images.forEach(function(src){
   link.href = "javascript:void(0)";
 
   const img = document.createElement("img");
-  img.src = src;
   img.alt = "Korkut Mobilya Dubleks Merdiven Modeli";
 
   img.onload = function(){
@@ -378,9 +365,10 @@ images.forEach(function(src){
   };
 
   img.onerror = function(){
-    console.log("Resim bulunamadı: " + src);
+    console.log("Resim bulunamadı veya yüklenemedi: " + src);
   };
 
+  img.src = src;
   link.appendChild(img);
 });
 
