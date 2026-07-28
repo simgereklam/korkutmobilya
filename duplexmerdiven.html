@@ -288,8 +288,7 @@ bottom:14px;
 <a href="vitrin.html">Vitrin</a>
 <a href="komidin.html">Komidin</a>
 <a href="sifonyer.html">Sifonyer</a>
-<!-- Sayfa adı duplexmerdiven.html olarak düzeltildi -->
-<a href="duplexmerdiven.html">Dubleks Merdiven</a>
+<a href="dublexmerdiven.html">Dubleks Merdiven</a>
 <a href="portmanto.html">Portmanto</a>
 <a href="kiler-dolabi.html">Kiler Dolabı</a>
 <a href="ayakkabıdolabı.html">Ayakkabılık</a>
@@ -327,7 +326,7 @@ bottom:14px;
 <script>
 const galeri = document.getElementById("galeri");
 
-// Resim adlarındaki b ve p harfi farklılıkları birebir eşleştirildi:
+// Sunucudaki resim adlarına göre (b ve p harfleriyle) liste kilitlendi:
 const images = [
   "dublexmerdiven.1.png",
   "dublexmerdiven.2.png",
@@ -335,6 +334,8 @@ const images = [
   "dublexmerdiven.4.png",
   "dublexmerdiven.5.png",
   "duplexmerdiven.6.png",
+  "duplexmerdiven.7.png",
+  "duplexmerdiven.8.png"
 ];
 
 let loadedImages = [];
@@ -351,6 +352,7 @@ images.forEach(function(src){
   const img = document.createElement("img");
   img.alt = "Korkut Mobilya Dubleks Merdiven Modeli";
 
+  // Önce tarayıcı yükleme olayı dinleniyor
   img.onload = function(){
     loadedImages.push(src);
     const realIndex = loadedImages.length - 1;
@@ -366,6 +368,7 @@ images.forEach(function(src){
     console.log("Resim bulunamadı veya yüklenemedi: " + src);
   };
 
+  // Kaynak en son atanarak tarayıcı yarışı (race condition) önleniyor
   img.src = src;
   link.appendChild(img);
 });
